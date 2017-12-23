@@ -1,4 +1,4 @@
-[![coffeecoin](https://github.com/cbrnrd/Coffeecoin/raw/master/img/MAIN_PHOTO_AND_LOGO.png)](coffeecoin.org)
+![coffeecoin](https://github.com/cbrnrd/Coffeecoin/blob/master/img/MAIN_IMG_AND_LOGO.png)]
 
 # What is Coffeecoin?
 Coffeecoin is a cryptocurrency based on secure blockchain technology. Coffeecoin uses peer-to-peer networking to keep payments secure and without a central authority. Coffeecoin Core (this repo) is the name of the open source software backend which enables the use of this currency.
