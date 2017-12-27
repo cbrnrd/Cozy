@@ -1,4 +1,7 @@
-package io.codepace.coffeecoin;
+package io.codepace.coffeecoin.db;
+
+import io.codepace.coffeecoin.LedgerManager;
+import io.codepace.coffeecoin.db.Block;
 
 import java.io.*;
 import java.sql.Timestamp;
@@ -142,7 +145,7 @@ public class Blockchain {
                 largestChain = chains.get(0);
                 largestChainLastBlockHash = block.blockHash;
 
-                if (ledgerManager.lastBlockNum < 0) {
+                if (ledgerManager.lastBlockIndex < 0) {
                     ArrayList<String> txsToApply = new ArrayList<>();
                     txsToApply.addAll(block.txs);
                     int loopCount = 0;
@@ -227,7 +230,7 @@ public class Blockchain {
                                 ledgerManager.adjustAddressSignatureCount(chains.get(i).get(j).cert.redeemAddress, 1);
                             }
                         } else {  // We added to the longest chain
-                            if (ledgerManager.lastBlockNum < block.blockIndex) {
+                            if (ledgerManager.lastBlockIndex < block.blockIndex) {
                                 ArrayList<String> txsToApply = new ArrayList<>();
                                 txsToApply.addAll(block.txs);
 
@@ -351,7 +354,7 @@ public class Blockchain {
      *
      * @param addr The address to search through the tx pool for
      * @return ArrayList<String> All transactions in the form blockindex:sender:amount:reciever
-     * @see io.codepace.coffeecoin.Block#getTransactionsInvolvingAddress(String)
+     * @see Block#getTransactionsInvolvingAddress(String)
      */
     public ArrayList<String> getAllTransactionsInvolvingAddress(String addr) {
         int longestChainLen = 0;

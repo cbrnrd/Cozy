@@ -1,4 +1,8 @@
-package io.codepace.coffeecoin;
+package io.codepace.coffeecoin.address;
+
+import io.codepace.coffeecoin.MerkleAddressUtility;
+import io.codepace.coffeecoin.RandomString;
+import io.codepace.coffeecoin.Util;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +28,7 @@ public class AddressManager {
     private Logger logger = Util.getLogger();
 
     public AddressManager(){
-        this.treegen = new MerkleTreeGenLimitless();
+        this.treeGen = new MerkleTreeGenLimitless();
         this.privateKeys = new ArrayList<>();
         this.addrs = new ArrayList<>();
         try{

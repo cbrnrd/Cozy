@@ -1,5 +1,6 @@
 package io.codepace.coffeecoin;
 
+import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +25,7 @@ public class Util {
 
     public static void logInfoAndPrint(String msg){
         logger.log(Level.INFO, msg);
-        System.out.println(msg);
+        System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + msg);
     }
 
     public static Logger getLogger(){
@@ -43,6 +44,15 @@ public class Util {
             }
         }
         return true;
+    }
+
+    public static boolean isInteger(String s){
+        try{
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e){
+            return false;
+        }
     }
 }
 

@@ -1,7 +1,12 @@
-package io.codepace.coffeecoin;
+package io.codepace.coffeecoin.db;
+
+import io.codepace.coffeecoin.Certificate;
+import io.codepace.coffeecoin.MerkleAddressUtility;
+import io.codepace.coffeecoin.Util;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  * This class provides all functionality related to block usage and block verification.
@@ -287,7 +292,7 @@ public class Block {
         {
             try
             {
-                if (!cert.validateCertificate())
+                if (!cert.validCertificate())
                 {
                     System.out.println("Certificate validation error");
                     return false; //Certificate is not valid.
