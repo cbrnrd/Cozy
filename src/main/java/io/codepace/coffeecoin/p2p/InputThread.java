@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class InputThread {
+public class InputThread extends Thread{
 
     private Socket socket;
     private ArrayList<String> recievedData = new ArrayList<>();
