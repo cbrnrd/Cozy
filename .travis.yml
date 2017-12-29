@@ -10,6 +10,10 @@ addons:
 before-install:
   - sudo apt-get update -q -y
 
+script:
+  - gradle assemble
+  - gradle check
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
@@ -18,6 +22,3 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-script:
-  - gradle assemble
-  - gradle check

@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="463d630d-c335-4277-a51c-659b92f33682" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Constants.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/coffeecoin.bat" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Main.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Main.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/MerkleAddressUtility.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/MerkleAddressUtility.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Util.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Util.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/LamportGenThread.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/LamportGenThread.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Blockchain.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Blockchain.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerNetwork.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerNetwork.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPCThread.class" afterPath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPCThread.class" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" />
-      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" afterPath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin.bat" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -86,6 +54,12 @@
                 <item name="coffeecoin" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -186,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+              <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -629,40 +603,6 @@
               <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
               <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
-            <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="install" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="install" type="462c0819:PsiDirectoryNode" />
-              <item name="coffeecoin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="install" type="462c0819:PsiDirectoryNode" />
-              <item name="coffeecoin" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="install" type="462c0819:PsiDirectoryNode" />
-              <item name="coffeecoin" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -698,7 +638,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.coffeecoin [installDist]">
+  <component name="RunManager" selected="Gradle.coffeecoin [assemble]">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -718,6 +658,24 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+    </configuration>
+    <configuration name="coffeecoin [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     </configuration>
     <configuration name="coffeecoin [buildEnvironment]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -755,7 +713,7 @@
       </ExternalSystemSettings>
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     </configuration>
-    <configuration name="coffeecoin [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="coffeecoin [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -766,25 +724,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-    </configuration>
-    <configuration name="coffeecoin [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependentComponents" />
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -870,19 +810,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [dependentComponents]" />
-      <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [dependencies]" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
-      <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
+      <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
+      <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [assemble]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
-        <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [dependencies]" />
-        <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [dependentComponents]" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [assemble]" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
+        <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
       </list>
     </recent_temporary>
   </component>
@@ -902,9 +842,13 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="coffeecoin_[check] - 2017.12.29 at 01h 23m 31s.xml">
+      <configuration name="coffeecoin [check]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -915,7 +859,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18603411" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
@@ -1347,7 +1291,7 @@
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
           <folding />
         </state>
       </provider>
