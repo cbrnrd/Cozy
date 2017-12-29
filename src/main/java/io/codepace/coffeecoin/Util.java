@@ -25,7 +25,6 @@ public class Util {
 
     public static void logInfoAndPrint(String msg){
         logger.log(Level.INFO, msg);
-        System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + msg);
     }
 
     public static Logger getLogger(){

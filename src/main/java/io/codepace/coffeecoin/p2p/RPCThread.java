@@ -27,12 +27,14 @@ public class RPCThread extends Thread {
             while((input = in.readLine()) != null){
                 if (input.equalsIgnoreCase("HELP")){
                     out.println("Commands:");
-                    out.println("send <amount> <dest_addr> - Send <amount> coins to <dest_addr>");
-                    out.println("getinfo");
+                    out.println("send <amount> <dest> - Send <amount> coins to <dest>");
+                    out.println("getinfo - Gets basic info about this node.");
                     out.println("getbalance <address> - Gets the current balance of <address>");
                     out.println("submit_tx <rawTx> - Submits a transaction to the network");
                     out.println("submit_cert <cert> - Submits a certificate to the network");
                     out.println("get_history <address> - Gets the tx history of <address>");
+                    out.println("get_pending <address - Gets the pending balance of the default address");
+                    out.println("trypos - Attempts a PoS block");
                     out.println();
                 } else {
                     req = input;

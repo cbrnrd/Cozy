@@ -23,7 +23,7 @@ public class Blockchain {
 
     public Blockchain(String dbFolder) {
         this.dbFolder = dbFolder;
-        this.ledgerManager = new LedgerManager(dbFolder + "balances.dat");
+        this.ledgerManager = new LedgerManager(dbFolder + "/balances.dat");
         this.queue = new ArrayList<>();
     }
 

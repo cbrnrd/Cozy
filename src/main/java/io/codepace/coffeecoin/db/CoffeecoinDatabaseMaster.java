@@ -47,7 +47,7 @@ public class CoffeecoinDatabaseMaster {
                 if(toAdd.validateBlock(this.chain)){
                     chain.addBlock(toAdd, true);
                 } else {
-                    getLogger().severe("Block " + toAdd + " is invalid but in blockchain db file");
+                    getLogger().severe("Block " + toAdd.blockIndex + " is invalid but in blockchain db file");
                     System.out.println(new Timestamp(System.currentTimeMillis()) + "[DAEMON] - " + ANSI_RED + "Block " + toAdd + " is invalid but in blockchain db file" + ANSI_RESET);
                 }
             }

@@ -1,5 +1,7 @@
 package io.codepace.coffeecoin.address;
 
+import io.codepace.coffeecoin.Constants;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -236,7 +238,8 @@ public class MerkleTreeGenLimitless
         try
         {
             String tempDir = new Random().nextInt(10000000) + ""; //Name of temporary directory to hold progress files. Not deleted on failure for manual recovery purposes.
-            File tempDirFile = new File(tempDir);
+            File throwaway = new File("layers");
+            File tempDirFile = new File("layers/" + tempDir);
             tempDirFile.mkdir();
 
             File layer0File = new File(scratchFileName);
@@ -309,7 +312,7 @@ public class MerkleTreeGenLimitless
                 PrintWriter infoFileWriter = new PrintWriter(new File("addresses/" + address + "/info.dta"));
                 infoFileWriter.println("address: " + address);
                 infoFileWriter.println("layers: " + numLayers);
-                infoFileWriter.println("software_version: 2.0.0a");
+                infoFileWriter.println("software_version: " + Constants.VERSION);
                 infoFileWriter.close();
             }
             return address;

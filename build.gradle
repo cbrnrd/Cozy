@@ -1,8 +1,18 @@
 group 'io.codepace'
 version '1.0'
 
+apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'distribution'
+
 mainClassName="io.codepace.coffeecoin.Main"
+//executableDir = "."
+
+jar {
+    manifest{
+        attributes 'Main-Class': 'io.codepace.coffeecoin.Main'
+    }
+}
 
 sourceCompatibility = 1.8
 
