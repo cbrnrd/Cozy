@@ -161,8 +161,8 @@ public class Block {
     }
 
     public boolean validateBlock(Blockchain chain){
-        Util.logInfoAndPrint("Validating block " + blockIndex + "...");
-        Util.logInfoAndPrint("Difficulty:" + difficulty);
+        Util.getLogger().info("Validating block " + blockIndex + "...");
+        Util.getLogger().info("Difficulty:" + difficulty);
 
         if (difficulty == 100000){
 

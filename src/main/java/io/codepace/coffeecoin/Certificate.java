@@ -128,7 +128,7 @@ public class Certificate {
         } catch (Exception e){
             e.printStackTrace();
         }
-        logInfoAndPrint("Best nonce:" + bestNonce + " with score: " + score);
+        getLogger().info("Best nonce:" + bestNonce + " with score: " + score);
         return bestNonce + ":" + score;
     }
 

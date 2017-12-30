@@ -27,7 +27,7 @@ public class InputThread extends Thread{
                 recievedData.add(input);
             }
         } catch (Exception e){
-            logInfoAndPrint("Peer: " + socket.getInetAddress() + " disconnected.");
+            getLogger().info("Peer: " + socket.getInetAddress() + " disconnected.");
         }
     }
 

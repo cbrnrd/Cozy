@@ -87,7 +87,7 @@ public class Blockchain {
     }
 
     public boolean addBlock(Block block, boolean fromChainFile) {
-        logInfoAndPrint("Attempting to add block " + block.blockIndex + " with hash " + block.blockHash);
+        getLogger().info("Attempting to add block " + block.blockIndex + " with hash " + block.blockHash);
         try {
             boolean isPoS = false;
 
@@ -97,7 +97,7 @@ public class Blockchain {
 
             // 1 nonce in every 150000 will win. Could change later to make it quicker.
             if (block.difficulty != 150000 && !isPoS) {
-                logInfoAndPrint("Block detected with wrong difficulty");
+                getLogger().info("Block detected with wrong difficulty");
                 return false;
             }
 
@@ -131,9 +131,9 @@ public class Blockchain {
 
             if (block.blockIndex > largestChainLen) {
                 queue.add(block);
-                logInfoAndPrint("Block " + block.blockIndex + " with starting hash " + block.blockHash.substring(0, 8) + " added to queue.");
-                logInfoAndPrint("Largest chain length: " + largestChainLen);
-                logInfoAndPrint("Block index: " + block.blockIndex);
+                getLogger().info("Block " + block.blockIndex + " with starting hash " + block.blockHash.substring(0, 8) + " added to queue.");
+                getLogger().info("Largest chain length: " + largestChainLen);
+                getLogger().info("Block index: " + block.blockIndex);
                 return false; // The block hasn't yet been added to the chain, it's in the queue
             }
 
@@ -162,7 +162,7 @@ public class Blockchain {
                         if (loopCount > 10000) {
                             String exitMsg = "Infinite block detected. Hash: " + block.blockHash + " at index " + block.blockIndex;
                             getLogger().log(Level.SEVERE, exitMsg);
-                            System.out.println(new Timestamp(System.currentTimeMillis()) + "[DAEMON] - " + ANSI_RED + exitMsg + ANSI_RESET);
+                            System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + ANSI_RED + exitMsg + ANSI_RESET);
                             System.out.println(txsToApply.size());
                             System.exit(-1);
                         }
@@ -179,16 +179,16 @@ public class Blockchain {
             // Check for duplicate blocks
             for (int i = 0; i < chains.size(); i++) {
                 if (chains.get(i).get(chains.get(i).size() - 1).blockHash.equals(block.blockHash)) {
-                    logInfoAndPrint("Duplicate block received from peer, ignoring it.");
+                    getLogger().info("Duplicate block received from peer, ignoring it.");
                     return false;
                 }
             }
 
             for (int i = 0; i < chains.size(); i++) {
-                logInfoAndPrint("Previous block hash according to chain: " + chains.get(0).get(chains.get(i).size() - 1).blockHash);
-                logInfoAndPrint("Previous block hash according to added block: " + block.prevBlockHash);
-                logInfoAndPrint("Selected chain size: " + chains.get(i).size());
-                logInfoAndPrint("Should be equal to block index: " + block.blockIndex);
+                getLogger().info("Previous block hash according to chain: " + chains.get(0).get(chains.get(i).size() - 1).blockHash);
+                getLogger().info("Previous block hash according to added block: " + block.prevBlockHash);
+                getLogger().info("Selected chain size: " + chains.get(i).size());
+                getLogger().info("Should be equal to block index: " + block.blockIndex);
 
                 // New blocks stack nicely on to one of the others
                 if (chains.get(i).get(chains.get(i).size() - 1).blockHash.equals(block.prevBlockHash) && chains.get(i).size() == block.blockIndex) {
@@ -212,17 +212,17 @@ public class Blockchain {
                                 while (txsToApply.size() > 0) {
                                     loopCount++;
                                     for (int k = 0; k < txsToApply.size(); k++) {
-                                        logInfoAndPrint("Attempting to execute transaction: " + txsToApply.get(k).substring(0, 45) + "..." + txsToApply.get(k).substring(txsToApply.get(k).length() - 20));
+                                        getLogger().info("Attempting to execute transaction: " + txsToApply.get(k).substring(0, 45) + "..." + txsToApply.get(k).substring(txsToApply.get(k).length() - 20));
                                         if (ledgerManager.executeTransaction(txsToApply.get(k))) {
-                                            logInfoAndPrint("Successfully executed transaction!");
+                                            getLogger().info("Successfully executed transaction!");
                                             txsToApply.remove(k);
                                             k--; //Compensate for changed ArrayList size
                                         } else {
-                                            logInfoAndPrint("Didn't execute transaction...");
+                                            getLogger().info("Didn't execute transaction...");
                                         }
                                     }
                                     if (loopCount > 10000) {
-                                        logInfoAndPrint("Infinite block detected! Hash: " + chains.get(i).get(j).blockHash + " and height: " + chains.get(i).get(j).blockIndex);
+                                        getLogger().info("Infinite block detected! Hash: " + chains.get(i).get(j).blockHash + " and height: " + chains.get(i).get(j).blockIndex);
                                         System.exit(-1);
                                     }
                                 }
@@ -247,7 +247,7 @@ public class Blockchain {
                                         }
                                     }
                                     if (loopCount > 10000) {
-                                        logInfoAndPrint("Infinite block detected with hash: " + block.blockHash + " at index " + block.blockIndex);
+                                        getLogger().info("Infinite block detected with hash: " + block.blockHash + " at index " + block.blockIndex);
                                         System.exit(-1);
                                     }
                                 }
@@ -261,9 +261,9 @@ public class Blockchain {
                         writeBlockToFile(block);
                     return true;
                 } else {
-                    logInfoAndPrint("Something went wrong with block stacking.");
-                    logInfoAndPrint(chains.get(i).get(chains.get(i).size() - 1).blockHash);
-                    logInfoAndPrint(block.prevBlockHash);
+                    getLogger().info("Something went wrong with block stacking.");
+                    getLogger().info(chains.get(i).get(chains.get(i).size() - 1).blockHash);
+                    getLogger().info(block.prevBlockHash);
                 }
             }
             // Whether or not we've found a place for our block in the chain
@@ -292,7 +292,7 @@ public class Blockchain {
 
             if (!foundPlace) {
                 // Block must have been very old.
-                logInfoAndPrint("Block didn't fit anywhere.");
+                getLogger().info("Block didn't fit anywhere.");
                 return false;
             }
 
@@ -312,7 +312,7 @@ public class Blockchain {
      * @return boolean Whether or not the write was successful
      */
     public boolean writeBlockToFile(Block block) {
-        logInfoAndPrint("Writing a block to the chainfile...");
+        getLogger().info("Writing a block to the chainfile...");
         try (FileWriter writer = new FileWriter(dbFolder + "/blockchain-DONOTTOUCH.dat", true);
              BufferedWriter bufferedWriter = new BufferedWriter(writer);
              PrintWriter out = new PrintWriter(bufferedWriter)) {

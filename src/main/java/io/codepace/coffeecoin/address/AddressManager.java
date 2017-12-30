@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static io.codepace.coffeecoin.Util.logInfoAndPrint;
+import static io.codepace.coffeecoin.Util.*;
 
 
 /**
@@ -34,7 +34,7 @@ public class AddressManager {
         try{
             File wallet = new File("wallet-keys.dat");
             if(!wallet.exists()){
-                logInfoAndPrint("Generating new address...");
+                getLogger().info("Generating new address...");
                 String key = getPrivateKey();
                 String address = treeGen.generateMerkleTree(key, 14, 16, 128);
                 System.out.println("New address: " + Util.ANSI_GREEN + address + Util.ANSI_RESET);

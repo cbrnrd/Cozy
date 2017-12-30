@@ -7,7 +7,7 @@ import static io.codepace.coffeecoin.Util.*;
 public class TransactionUtility {
 
     public static boolean isTransactionValid(String tx){
-        logInfoAndPrint("Checking validity of transaction: " + tx);
+        getLogger().info("Checking validity of transaction: " + tx);
         MerkleAddressUtility merkle = new MerkleAddressUtility();
         try{
             String[] txParts = tx.split("::");

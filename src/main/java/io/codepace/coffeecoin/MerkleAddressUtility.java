@@ -305,7 +305,7 @@ public class MerkleAddressUtility {
             }
             return privateKeyParts;
         } catch (Exception e){
-            logInfoAndPrint("Unable to generate lamport key parts. Exiting.");
+            getLogger().info("Unable to generate lamport key parts. Exiting.");
             e.printStackTrace();
             System.exit(-2);
         }

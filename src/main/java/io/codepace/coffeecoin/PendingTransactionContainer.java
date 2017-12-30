@@ -26,7 +26,7 @@ public class PendingTransactionContainer {
                 }
             }
             if(!TransactionUtility.isTransactionValid(tx)){
-                Util.logInfoAndPrint("Ignoring invalid transaction: " + tx);
+                Util.getLogger().info("Ignoring invalid transaction: " + tx);
                 return false;
             }
             String[] txParts = tx.split(":");
@@ -43,7 +43,7 @@ public class PendingTransactionContainer {
             }
             double prevBalance = dbMaster.getAddressBalance(inAddr);
             if (prevBalance < inAmount + outstandingOutgoingAmount){
-                Util.logInfoAndPrint(inAddr + " tried to spend " + inAmount + " but only had " + (prevBalance - outstandingOutgoingAmount) + " coins.");
+                Util.getLogger().info(inAddr + " tried to spend " + inAmount + " but only had " + (prevBalance - outstandingOutgoingAmount) + " coins.");
                 return false;
             }
             if (indexOfDelta >= 0){
@@ -52,7 +52,7 @@ public class PendingTransactionContainer {
                 accountBalanceDeltaTables.add(new StringDoublePair(inAddr, inAmount));
             }
             pending.add(tx); // Only here if tx is valid
-            Util.logInfoAndPrint("Added transaction " + tx.substring(0, 20) + "..." + tx.substring(tx.length() - 20));
+            Util.getLogger().info("Added transaction " + tx.substring(0, 20) + "..." + tx.substring(tx.length() - 20));
         } catch (Exception e){
             e.printStackTrace();
             return false;
@@ -119,7 +119,7 @@ public class PendingTransactionContainer {
                 }
             } catch (Exception e){
                 e.printStackTrace();
-                Util.logInfoAndPrint(Util.ANSI_YELLOW + "Transaction in pending pool is incorrectly formatted. (Tx: " + tx + ")");
+                Util.getLogger().info(Util.ANSI_YELLOW + "Transaction in pending pool is incorrectly formatted. (Tx: " + tx + ")");
             }
         }
         return delta;

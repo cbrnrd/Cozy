@@ -7,23 +7,32 @@ import io.codepace.coffeecoin.p2p.PeerNetwork;
 import io.codepace.coffeecoin.p2p.RPC;
 import net.sourceforge.argparse4j.ArgumentParsers;
 
+import static io.codepace.coffeecoin.Util.*;
+
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         launch();
         CoffeecoinDatabaseMaster databaseMaster = new CoffeecoinDatabaseMaster("coffeecoin-db");
         PendingTransactionContainer pendingTransactionContainer = new PendingTransactionContainer(databaseMaster);
+
+        System.out.print("Initiating peer network...  ");
         PeerNetwork peerNetwork = new PeerNetwork();
         peerNetwork.start();
+        System.out.println("[  " + ANSI_GREEN + "OK" + ANSI_RESET + "  ]");
+
+        System.out.print("Starting RPC daemon...  ");
         RPC rpcAgent = new RPC();
         rpcAgent.start();
+        System.out.println("[  " + ANSI_GREEN + "OK" + "  ]");
+
         File peerFile = new File("peers.list");
         ArrayList<String> peers = new ArrayList<>();
         AddressManager addressManager = new AddressManager();
@@ -54,6 +63,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        getLogger().info("Sending REQUEST_NET_STATE out to network");
         peerNetwork.broadcast("REQUEST_NET_STATE");
         int topBlock = 0;
         ArrayList<String> allBroadcastTransactions = new ArrayList<>();
@@ -79,7 +89,7 @@ public class Main {
                     }
                     writePeerFile.close();
                 } catch (Exception e){
-                    Util.logInfoAndPrint("Error: Unable to write to peer file.");
+                    Util.getLogger().warning("Error: Unable to write to peer file.");
                     e.printStackTrace();
                 }
             }
@@ -88,7 +98,7 @@ public class Main {
             for (int i = 0; i < peerNetwork.peerThreads.size(); i++) {
                 ArrayList<String> input = peerNetwork.peerThreads.get(i).inputThread.readData();
                 if(input == null){
-                    Util.logInfoAndPrint("Null ret retry.");
+                    Util.getLogger().info("Null ret retry.");
                     System.exit(-5);
                     break;
                 }
@@ -96,9 +106,9 @@ public class Main {
                 for (int j = 0; j < input.size(); j++) {
                     String data = input.get(j);
                     if(data.length() > 60){
-                        Util.logInfoAndPrint("Got data: " + data.substring(0, 30) + "..." + data.substring(data.length() - 30, data.length()));
+                        Util.getLogger().info("Got data: " + data.substring(0, 30) + "..." + data.substring(data.length() - 30, data.length()));
                     } else {
-                        Util.logInfoAndPrint("Got data: " + data);
+                        Util.getLogger().info("Got data: " + data);
                     }
                     String[] parts = data.split(" ");
                     if (parts.length > 0){
@@ -110,7 +120,7 @@ public class Main {
                                 peerNetwork.peerThreads.get(i).outputThread.write("TRANSACTION " + pendingTransactionContainer.pending.get(k));
                             }
                         } else if (parts[0].equalsIgnoreCase("BLOCK")){
-                            Util.logInfoAndPrint("Attempting to add block...");
+                            Util.getLogger().info("Attempting to add block...");
                             boolean hasSeenBlockBefore = false;
                             for (int k = 0; k < allBroadcastBlocks.size(); k++) {
                                 if(parts[1].equals(allBroadcastBlocks.get(k))){
@@ -119,13 +129,13 @@ public class Main {
                             }
 
                             if(!hasSeenBlockBefore){
-                                Util.logInfoAndPrint("Adding new block from network...");
-                                Util.logInfoAndPrint("Block: ");
-                                Util.logInfoAndPrint(parts[1].substring(0, 30) + "...");
+                                Util.getLogger().info("Adding new block from network...");
+                                Util.getLogger().info("Block: ");
+                                Util.getLogger().info(parts[1].substring(0, 30) + "...");
                                 allBroadcastBlocks.add(parts[1]);
                                 Block blockToAdd = new Block(parts[1]);
                                 if(databaseMaster.addBlock(blockToAdd) && !catchupMode){
-                                    Util.logInfoAndPrint("Added block " + blockToAdd.blockIndex + " with hash: [" + blockToAdd.blockHash.substring(0, 30) + "..." + blockToAdd.blockHash.substring(blockToAdd.blockHash.length() - 30, blockToAdd.blockHash.length() - 1) + "]");
+                                    Util.getLogger().info("Added block " + blockToAdd.blockIndex + " with hash: [" + blockToAdd.blockHash.substring(0, 30) + "..." + blockToAdd.blockHash.substring(blockToAdd.blockHash.length() - 30, blockToAdd.blockHash.length() - 1) + "]");
                                     peerNetwork.broadcast("BLOCK " + parts[1]);
                                 }
                                 pendingTransactionContainer.removeTransactionsInBlock(parts[1]);
@@ -141,15 +151,15 @@ public class Main {
                                 allBroadcastTransactions.add(parts[1]);
                                 pendingTransactionContainer.addTransaction(parts[1]);
                                 if(TransactionUtility.isTransactionValid(parts[1])){
-                                    Util.logInfoAndPrint("New tx on network: ");
+                                    Util.getLogger().info("New tx on network: ");
                                     String[] txParts = parts[1].split("::");
                                     for (int k = 2; k < txParts.length - 2; k+=2) {
-                                        Util.logInfoAndPrint("     " + txParts[k + 1] + " coffeecoin(s) from " + txParts[0] + " to " + txParts[k]);
+                                        Util.getLogger().info("     " + txParts[k + 1] + " coffeecoin(s) from " + txParts[0] + " to " + txParts[k]);
                                     }
-                                    Util.logInfoAndPrint("Total coffeecoin sent: "+ txParts[1]);
+                                    Util.getLogger().info("Total coffeecoin sent: "+ txParts[1]);
                                     peerNetwork.broadcast("TRANSACTION " + parts[1]);
                                 } else {
-                                    Util.logInfoAndPrint("Invalid transaction: " + parts[1]);
+                                    Util.getLogger().info("Invalid transaction: " + parts[1]);
                                 }
                             }
                         } else if (parts[0].equalsIgnoreCase("PEER")){
@@ -182,7 +192,7 @@ public class Main {
                             try{
                                 Block block = databaseMaster.getBlock(Integer.parseInt(parts[1]));
                                 if (block != null){
-                                    Util.logInfoAndPrint("Sending block " + parts[1] + " to peer");
+                                    Util.getLogger().info("Sending block " + parts[1] + " to peer");
                                     peerNetwork.peerThreads.get(i).outputThread.write("BLOCK " + block.getRawBlock());
                                 }
                             } catch (Exception e){
@@ -201,21 +211,21 @@ public class Main {
 
             if(topBlock > currentChainHeight){
                 catchupMode = true;
-                Util.logInfoAndPrint("Current chain height: " + currentChainHeight);
-                Util.logInfoAndPrint("Top block: " + topBlock);
+                Util.getLogger().info("Current chain height: " + currentChainHeight);
+                Util.getLogger().info("Top block: " + topBlock);
                 try{
                     Thread.sleep(300);
                 } catch (InterruptedException e){
-                    Util.logInfoAndPrint("Main thread sleep interrupted.");
+                    Util.getLogger().info("Main thread sleep interrupted.");
                     e.printStackTrace();
                 }
                 for (int i = currentChainHeight; i < topBlock; i++) {
-                    Util.logInfoAndPrint("Requesting block " + i + "...");
+                    Util.getLogger().info("Requesting block " + i + "...");
                     peerNetwork.broadcast("GET_BLOCK " + i);
                 }
             } else {
                 if (catchupMode){
-                    Util.logInfoAndPrint("Caught up with network.");
+                    Util.getLogger().info("Caught up with network.");
                 }
                 catchupMode = false;
             }
@@ -250,11 +260,11 @@ public class Main {
                             String addr = addressManager.getDefaultAddress();
                             String fullTx = addressManager.getSignedTransaction(destAddr, amount, databaseMaster.getAddressSignatureIndex(addr) + addressManager.getDefaultOffset());
                             addressManager.incrementDefaultOffset();
-                            Util.logInfoAndPrint("Trying to verify transaction... " + TransactionUtility.isTransactionValid(fullTx));
+                            Util.getLogger().info("Trying to verify transaction... " + TransactionUtility.isTransactionValid(fullTx));
                             if (TransactionUtility.isTransactionValid(fullTx)){
                                 pendingTransactionContainer.addTransaction(fullTx);
                                 peerNetwork.broadcast("TRANSACTION " + fullTx);
-                                Util.logInfoAndPrint("Sending " + amount + " to " + destAddr + " from " + addr);
+                                Util.getLogger().info("Sending " + amount + " to " + destAddr + " from " + addr);
                                 rpcAgent.rpcThreads.get(i).res = "Sent " + amount + " from " + addr + " to " + destAddr;
                             } else {
                                 rpcAgent.rpcThreads.get(i).res = "Unable to send: invalid transaction :(";
@@ -303,8 +313,8 @@ public class Main {
 
                         if (conditionsMet)
                         {
-                            Util.logInfoAndPrint("Last block: " + databaseMaster.getBlockchainLength());
-                            Util.logInfoAndPrint("That block's hash: " + databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash);
+                            Util.getLogger().info("Last block: " + databaseMaster.getBlockchainLength());
+                            Util.getLogger().info("That block's hash: " + databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash);
                             String previousBlockHash = databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash;
                             double currentBalance = databaseMaster.getAddressBalance(PoSAddress);
                             Certificate certificate = new Certificate(PoSAddress, "0", (int)currentBalance * 100, "0", databaseMaster.getBlockchainLength() + 1, previousBlockHash, 0, "0,0");
@@ -320,9 +330,9 @@ public class Main {
                                     //Great, certificate is a winning certificate!
                                     //Gather all of the transactions from pendingTransactionContainer, check them.
                                     ArrayList<String> allPendingTransactions = pendingTransactionContainer.pending;
-                                    Util.logInfoAndPrint("Initial pending pool size: " + allPendingTransactions.size());
+                                    Util.getLogger().info("Initial pending pool size: " + allPendingTransactions.size());
                                     allPendingTransactions = TransactionUtility.sortTransactionsBySignatureIndex(allPendingTransactions);
-                                    Util.logInfoAndPrint("Pending pool size after sorting: " + allPendingTransactions.size());
+                                    Util.getLogger().info("Pending pool size after sorting: " + allPendingTransactions.size());
                                     //All transactions have been ordered, and tested for validity. Now, we need to check account balances to make sure transactions are valid. 
                                     //As all transactions are grouped by address, we'll check totals address-by-address
                                     ArrayList<String> finalTransactionList = new ArrayList<String>();
@@ -354,16 +364,16 @@ public class Main {
                                                 {
                                                     //Add seemingly-good transaction to the list, and increment previousSignatureCount for signature order assurance. 
                                                     finalTransactionList.add(transaction);
-                                                    Util.logInfoAndPrint("While making block, added transaction " + transaction);
+                                                    Util.getLogger().info("While making block, added transaction " + transaction);
                                                     previousSignatureCount++;
                                                 }
                                                 else
                                                 {
-                                                    Util.logInfoAndPrint("Transaction failed final validation...");
-                                                    Util.logInfoAndPrint("exitBalance: " + exitBalance);
-                                                    Util.logInfoAndPrint("originalBalance: " + originalBalance);
-                                                    Util.logInfoAndPrint("previousSignatureCount: " + previousSignatureCount);
-                                                    Util.logInfoAndPrint("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
+                                                    Util.getLogger().info("Transaction failed final validation...");
+                                                    Util.getLogger().info("exitBalance: " + exitBalance);
+                                                    Util.getLogger().info("originalBalance: " + originalBalance);
+                                                    Util.getLogger().info("previousSignatureCount: " + previousSignatureCount);
+                                                    Util.getLogger().info("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
                                                 }
                                                 //Counter keeps track of the sub-2nd-layer-for-loop incrementation along the ArrayList. It's kinda 3D.
                                                 counter++;
@@ -374,30 +384,30 @@ public class Main {
                                     //databaseMaster.getBlockchainLength() doesn't have one added to it to account for starting from 0!
                                     String fullBlock = BlockGenerator.compileBlock(System.currentTimeMillis(), databaseMaster.getBlockchainLength(), databaseMaster.getLatestBlock().blockHash, 100000 /*fixed testnet PoS difficulty for now...*/, bestNonce, "0000000000000000000000000000000000000000000000000000000000000000", finalTransactionList, certificate, certificate.redeemAddress, addressManager.getDefaultPrivateKey(), databaseMaster.getAddressSignatureIndex(certificate.redeemAddress));
 
-                                    Util.logInfoAndPrint("Compiled PoS block: " + fullBlock);
+                                    Util.getLogger().info("Compiled PoS block: " + fullBlock);
 
                                     //We finally have the full block. Now to submit it to ourselves...
                                     Block toAdd = new Block(fullBlock);
                                     boolean success = databaseMaster.addBlock(toAdd);
 
-                                    Util.logInfoAndPrint("Block add success: " + success);
+                                    Util.getLogger().info("Block add success: " + success);
 
                                     if (success) //The block appears legitimate to ourselves! Send it to others!
                                     {
                                         peerNetwork.broadcast("BLOCK " + fullBlock);
-                                        Util.logInfoAndPrint("PoS Block added to network successfully!");
+                                        Util.getLogger().info("PoS Block added to network successfully!");
                                         pendingTransactionContainer.reset(); //Any transactions left in pendingTransactionContainer that didn't get submitted into the block should be cleared anyway--they probably aren't valid for some reason, likely balance issues.
                                         addressManager.resetDefaultOffset();
                                     }
                                     else
                                     {
-                                        Util.logInfoAndPrint("Block was not added successfully! :(");
+                                        Util.getLogger().info("Block was not added successfully! :(");
                                     }
                                     rpcAgent.rpcThreads.get(i).res = "Successfully submitted block! \nCertificate earned score " + lowestScore + "\nWhich is below target " + target + " so earned PoS!";
                                 } catch (Exception e)
                                 {
                                     rpcAgent.rpcThreads.get(i).res = "Failure to construct certificate!";
-                                    Util.logInfoAndPrint("Constructing certificate failed!");
+                                    Util.getLogger().info("Constructing certificate failed!");
                                     e.printStackTrace();
                                 }
                             }
@@ -433,9 +443,9 @@ public class Main {
                                 //Great, certificate is a winning certificate!
                                 //Gather all of the transactions from pendingTransactionContainer, check them.
                                 ArrayList<String> allPendingTransactions = pendingTransactionContainer.pending;
-                                Util.logInfoAndPrint("Initial pending pool size: " + allPendingTransactions.size());
+                                Util.getLogger().info("Initial pending pool size: " + allPendingTransactions.size());
                                 allPendingTransactions = TransactionUtility.sortTransactionsBySignatureIndex(allPendingTransactions);
-                                Util.logInfoAndPrint("Pending pool size after sorting: " + allPendingTransactions.size());
+                                Util.getLogger().info("Pending pool size after sorting: " + allPendingTransactions.size());
                                 //All transactions have been ordered, and tested for validity. Now, we need to check account balances to make sure transactions are valid.
                                 //As all transactions are grouped by address, we'll check totals address-by-address
                                 ArrayList<String> finalTransactionList = new ArrayList<String>();
@@ -467,16 +477,16 @@ public class Main {
                                             {
                                                 //Add seemingly-good transaction to the list, and increment previousSignatureCount for signature order assurance.
                                                 finalTransactionList.add(transaction);
-                                                Util.logInfoAndPrint("While making block, added transaction " + transaction);
+                                                Util.getLogger().info("While making block, added transaction " + transaction);
                                                 previousSignatureCount++;
                                             }
                                             else
                                             {
-                                                Util.logInfoAndPrint("Transaction failed final validation...");
-                                                Util.logInfoAndPrint("exitBalance: " + exitBalance);
-                                                Util.logInfoAndPrint("originalBalance: " + originalBalance);
-                                                Util.logInfoAndPrint("previousSignatureCount: " + previousSignatureCount);
-                                                Util.logInfoAndPrint("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
+                                                Util.getLogger().info("Transaction failed final validation...");
+                                                Util.getLogger().info("exitBalance: " + exitBalance);
+                                                Util.getLogger().info("originalBalance: " + originalBalance);
+                                                Util.getLogger().info("previousSignatureCount: " + previousSignatureCount);
+                                                Util.getLogger().info("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
                                             }
                                             //Counter keeps track of the sub-2nd-layer-for-loop incrementation along the ArrayList. It's kinda 3D.
                                             counter++;
@@ -490,20 +500,20 @@ public class Main {
                                 boolean success = databaseMaster.addBlock(toAdd);
                                 if (success) //The block appears legitimate to ourselves! Send it to others!
                                 {
-                                    Util.logInfoAndPrint("Block added to network successfully!");
+                                    Util.getLogger().info("Block added to network successfully!");
                                     peerNetwork.broadcast("BLOCK " + fullBlock);
                                     pendingTransactionContainer.reset(); //Any transactions left in pendingTransactionContainer that didn't get submitted into the block should be cleared anyway--they probably aren't valid for some reason, likely balance issues.
                                     addressManager.resetDefaultOffset();
                                 }
                                 else
                                 {
-                                    Util.logInfoAndPrint("Block was not added successfully! :(");
+                                    Util.getLogger().info("Block was not added successfully! :(");
                                 }
                                 rpcAgent.rpcThreads.get(i).res = "Successfully submitted block! \nCertificate earned target score " + lowestScore + "\nWhich is below target " + target;
                             } catch (Exception e)
                             {
                                 rpcAgent.rpcThreads.get(i).res = "Failure to construct certificate!";
-                                Util.logInfoAndPrint("Constructing certificate failed!");
+                                Util.getLogger().info("Constructing certificate failed!");
                                 e.printStackTrace();
                             }
                         }
@@ -541,10 +551,11 @@ public class Main {
         }
     }
 
-    static void launch(){
+    static void launch() throws IOException{
         System.out.println("Launching Coffeecoin daemon, welcome!");
         File initialCheck = new File(".initial");
         if(!initialCheck.exists()){
+            initialCheck.createNewFile();
             System.out.println("Detected first time run, setting up a few things...");
             System.out.print("\nChecking for a valid JRE version... ");
 
@@ -554,10 +565,10 @@ public class Main {
             if (minor < 8){  // Java 1.8
                 System.out.println("[  " + Util.ANSI_RED + "FAIL" + Util.ANSI_WHITE + "  ]");
                 System.out.println("Coffeecoind needs a JRE version of 1.8 or greater, yours is " + Util.ANSI_RED +
-                    minor + Util.ANSI_WHITE);
+                        System.getProperty("java.version") + Util.ANSI_WHITE);
                 System.exit(-1);
             } else {
-                System.out.println("[  " + Util.ANSI_GREEN + "OK" + "  ]" + Util.ANSI_RESET);
+                System.out.println("[  " + Util.ANSI_GREEN + "OK" + Util.ANSI_RESET + "  ]");
             }
         }
     }

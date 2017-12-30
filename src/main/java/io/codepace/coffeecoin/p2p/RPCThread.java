@@ -48,7 +48,7 @@ public class RPCThread extends Thread {
                 }
             }
         } catch (Exception e){
-            Util.logInfoAndPrint("An RPC client has disconnected.");
+            Util.getLogger().info("An RPC client has disconnected.");
         }
     }
 }

@@ -30,7 +30,7 @@ public class PeerNetwork extends Thread{
             peerThreads.add(new PeerThread(socket));
             peerThreads.get(peerThreads.size() - 1).start();
         } catch (Exception e){
-            Util.logInfoAndPrint("Unable to connect to: " + addr + ":" + port);
+            Util.getLogger().info("Unable to connect to: " + addr + ":" + port);
         }
     }
 
