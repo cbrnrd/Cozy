@@ -12,7 +12,7 @@ Since Coffeecoin is built using Java, the node can be run on Linux, Windows, or 
 - [Travis-CI](https://travis-ci.org/) - Continuous Integration tool
 
 # Author
-- Carter Brainerd - Creator and founder of [Codepace](codepace.io) - [Website](carterbrainerd.me)
+- Carter Brainerd - Creator and founder of [Codepace](http://codepace.io) - [Website](carterbrainerd.me)
 
 # License
 Coffeecoin Core is released under the terms of the MIT license. See [LICENSE](https://github.com/cbrnrd/Coffeecoin/blob/master/LICENSE) for more information.
