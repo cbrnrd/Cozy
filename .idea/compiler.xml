@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="coffeecoin_main" target="1.8" />
       <module name="coffeecoin_test" target="1.8" />
+      <module name="cozy_main" target="1.8" />
+      <module name="cozy_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

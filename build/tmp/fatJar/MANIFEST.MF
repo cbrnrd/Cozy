@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: Coffeecoin 1.0.0 Daemon
+Implementation-Version: 1.0
+Main-Class: io.codepace.coffeecoin.Main
+

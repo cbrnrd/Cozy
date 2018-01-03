@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coffeecoin.iml" filepath="$PROJECT_DIR$/.idea/modules/coffeecoin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coffeecoin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/coffeecoin_main.iml" group="coffeecoin" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coffeecoin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/coffeecoin_test.iml" group="coffeecoin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cozy.iml" filepath="$PROJECT_DIR$/.idea/modules/cozy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cozy_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cozy_main.iml" group="cozy" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cozy_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cozy_test.iml" group="cozy" />
     </modules>
   </component>
 </project>

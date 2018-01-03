@@ -1,3 +1,8 @@
+plugins {
+  id 'com.gradle.build-scan' version '1.11'
+
+}
+
 group 'io.codepace'
 version '1.0'
 
@@ -5,16 +10,32 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'distribution'
 
-mainClassName="io.codepace.coffeecoin.Main"
+buildScan {
+  licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+  licenseAgree = 'yes'
+}
+
+mainClassName="io.codepace.cozy.Main"
 //executableDir = "."
 
 jar {
     manifest{
-        attributes 'Main-Class': 'io.codepace.coffeecoin.Main'
+        attributes 'Main-Class': 'io.codepace.cozy.Main'
     }
 }
 
-sourceCompatibility = 1.8
+task fatJar(type: Jar){
+    manifest {
+        attributes 'Implementation-Title' : 'Cozy 1.0.0 Daemon',
+                'Implementation-Version' : version,
+                'Main-Class' : 'io.codepace.cozy.Main'
+    }
+    baseName = project.name;
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+targetCompatibility = 1.8
 
 repositories {
     jcenter()

@@ -2,10 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="463d630d-c335-4277-a51c-659b92f33682" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy_main.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy_test.iml" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin_main.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin_test.iml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/coffeecoin.bat" afterPath="$PROJECT_DIR$/coffeecoin.bat" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/BlockGenerator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Certificate.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Constants.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/LedgerManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Main.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/MerkleAddressUtility.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/PendingTransactionContainer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/RandomString.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/StringDoublePair.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/TransactionUtility.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Util.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/AddressManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/LamportGenThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Block.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Blockchain.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/InputThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/OutputThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerNetwork.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPC.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPCThread.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" />
+      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/argparse4j-0.8.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/coffeecoin-1.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/commons-codec-1.11.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" afterPath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin" afterPath="$PROJECT_DIR$/build/scripts/coffeecoin" />
+      <change beforePath="$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png" afterPath="$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/BlockGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Certificate.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/LedgerManager.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/MerkleAddressUtility.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/PendingTransactionContainer.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/RandomString.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringDoublePair.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringDoublePair.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/TransactionUtility.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/LamportGenThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Block.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/InputThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/OutputThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerNetwork.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPC.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPCThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -33,34 +105,34 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="distribution" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="coffeecoin" type="f1a62948:ProjectNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="verification" type="c8890929:TasksNode$1" />
               </path>
@@ -74,10 +146,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="561" column="0" lean-forward="false" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="555" column="44" lean-forward="true" selection-start-line="555" selection-start-column="44" selection-end-line="555" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,56 +157,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MerkleTreeGenLimitless.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java">
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4131">
-              <caret line="252" column="63" lean-forward="false" selection-start-line="252" selection-start-column="63" selection-end-line="252" selection-end-column="63" />
+            <state relative-caret-position="0">
+              <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MerkleTreeGenLimitless.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4335">
+              <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MerkleAddressUtility.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/MerkleAddressUtility.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4063">
-              <caret line="245" column="43" lean-forward="false" selection-start-line="245" selection-start-column="43" selection-end-line="245" selection-end-column="43" />
+            <state relative-caret-position="4301">
+              <caret line="259" column="83" lean-forward="false" selection-start-line="259" selection-start-column="83" selection-end-line="259" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java">
+      <file leaf-file-name="AddressManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+            <state relative-caret-position="323">
+              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding>
-                <element signature="e#878#879#0" expanded="true" />
-                <element signature="e#921#922#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <file leaf-file-name="CozyDatabaseMaster.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="-120">
+              <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="Blockchain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
+            <state relative-caret-position="2771">
+              <caret line="171" column="51" lean-forward="false" selection-start-line="171" selection-start-column="51" selection-end-line="171" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -163,12 +252,20 @@
       <find>.lyr</find>
       <find>argpar</find>
       <find>Util.logInfoAndPrint</find>
+      <find>logInfoAndPrint</find>
+      <find>Certificate valida</find>
+      <find>DAEMON</find>
+      <find>keys per s</find>
+      <find>Coffeecoin</find>
     </findStrings>
     <replaceStrings>
       <replace>Coffeecoin</replace>
       <replace>verbose</replace>
       <replace>C</replace>
       <replace>Util.logInfoAndPrint</replace>
+      <replace>Util.getLogger().info</replace>
+      <replace>getLogger().info</replace>
+      <replace>Cozy</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -190,14 +287,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="coffeecoin" />
+              <option name="name" value="cozy" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="coffeecoin" />
+                <option name="name" value="cozy" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -211,7 +308,7 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'coffeecoin'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'cozy'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
@@ -221,9 +318,14 @@
                 <option name="name" value="buildDependents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'coffeecoin'." />
+                <option name="description" value="Displays the sub-projects of root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Publishes the data captured by the last build to the build scan server." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildScanPublishPrevious" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles main classes." />
@@ -231,12 +333,12 @@
                 <option name="name" value="classes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in root project 'coffeecoin'. [incubating]" />
+                <option name="description" value="Displays the dependent components of components in root project 'cozy'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependentComponents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'coffeecoin'." />
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="buildEnvironment" />
               </ExternalTaskPojo>
@@ -266,12 +368,16 @@
                 <option name="name" value="startScripts" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="fatJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="jar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'coffeecoin'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'cozy'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
@@ -286,7 +392,7 @@
                 <option name="name" value="processResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'coffeecoin'." />
+                <option name="description" value="Displays the tasks runnable from root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -311,7 +417,7 @@
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'coffeecoin'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -336,7 +442,7 @@
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'coffeecoin'." />
+                <option name="description" value="Displays all dependencies declared in root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
@@ -371,7 +477,7 @@
                 <option name="name" value="distZip" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'coffeecoin'." />
+                <option name="description" value="Displays the properties of root project 'cozy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
@@ -382,10 +488,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4542277270204" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="3736686353" />
+        <entry key="$PROJECT_DIR$" value="4543898620695" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2731726255" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1061797022" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="888712968" />
+        <entry key="$PROJECT_DIR$/settings.gradle" value="753087814" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -398,13 +504,18 @@
                   <entry key="$PROJECT_DIR$">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.gradle/build-scan-plugin/1.11/d12ae81fdca5e2744cab451e6ef1f9a44f02d294/build-scan-plugin-1.11.jar" />
+                          </list>
+                        </option>
                         <option name="path" value="$PROJECT_DIR$" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
                 </map>
               </option>
-              <option name="name" value="coffeecoin" />
+              <option name="name" value="cozy" />
               <option name="projectBuildClasspath">
                 <list>
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-3.5-rc-2-bin/7ktl4k9rdug30mawecgppf5ms/gradle-3.5-rc-2/lib/ant-1.9.6.jar" />
@@ -508,7 +619,6 @@
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/MerkleAddressUtility.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/LedgerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/LamportGenThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringLongPair.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Block.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringDoublePair.java" />
@@ -523,23 +633,28 @@
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/coffeecoin" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/coffeecoin.bat" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" />
+        <option value="$PROJECT_DIR$/settings.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="439" />
-    <option name="y" value="-20" />
+    <option name="x" value="237" />
+    <option name="y" value="-16" />
     <option name="width" value="1061" />
     <option name="height" value="1037" />
   </component>
@@ -549,7 +664,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages ProjectPane="false" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -558,21 +673,94 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Production">
           <expand>
             <path>
-              <item name="coffeecoin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="io" type="cbb8eebc:String" user="io" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="io" type="cbb8eebc:String" user="io" />
+              <item name="codepace" type="cbb8eebc:String" user="codepace" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="cozy_main" type="cbb8eebc:String" user="cozy_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="io" type="cbb8eebc:String" user="io" />
+              <item name="codepace" type="cbb8eebc:String" user="codepace" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cozy" type="cbb8eebc:String" user="cozy" />
+              <item name="coffeecoin" type="cbb8eebc:String" user="coffeecoin" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -582,14 +770,15 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="io.codepace.coffeecoin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Carter\IdeaProjects\coffeecoin\img" />
       <recent name="C:\Users\Carter\IdeaProjects\coffeecoin\build\install\coffeecoin\bin" />
       <recent name="C:\Users\Carter\IdeaProjects\coffeecoin" />
       <recent name="C:\Users\Carter\IdeaProjects\coffeecoin\build\scripts" />
       <recent name="C:\Users\Carter\IdeaProjects\coffeecoind" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="io.codepace.coffeecoin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -604,7 +793,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.coffeecoin [assemble]">
+  <component name="RunManager" selected="Gradle.coffeecoin [check]">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -624,42 +813,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-    </configuration>
-    <configuration name="coffeecoin [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-    </configuration>
-    <configuration name="coffeecoin [buildEnvironment]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildEnvironment" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     </configuration>
     <configuration name="coffeecoin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -697,21 +850,58 @@
       </ExternalSystemSettings>
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     </configuration>
-    <configuration name="coffeecoin [installDist]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="coffeecoin [clean build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="installDist" />
+            <option value="clean" />
+            <option value="build" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    </configuration>
+    <configuration name="coffeecoin [fatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="fatJar" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    </configuration>
+    <configuration name="coffeecoin [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     </configuration>
@@ -734,6 +924,18 @@
       </option>
       <envs />
       <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="coffeecoin" />
+      <envs />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -776,19 +978,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
-      <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
-      <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [assemble]" />
+      <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [run]" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [clean build]" />
+      <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [fatJar]" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [assemble]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [installDist]" />
-        <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
-        <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [buildEnvironment]" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.coffeecoin [check]" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.coffeecoin [fatJar]" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.coffeecoin [build]" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.coffeecoin [clean build]" />
+        <item index="4" class="java.lang.String" itemvalue="Gradle.coffeecoin [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -812,9 +1014,13 @@
     <history-entry file="coffeecoin_[check] - 2017.12.29 at 01h 23m 31s.xml">
       <configuration name="coffeecoin [check]" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="coffeecoin_[check] - 2018.01.02 at 19h 19m 36s.xml">
+      <configuration name="coffeecoin [check]" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -823,12 +1029,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.516165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1881663" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1945629" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25083613" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -841,7 +1048,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25083613" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -853,27 +1059,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Certificate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="112" column="68" lean-forward="false" selection-start-line="112" selection-start-column="68" selection-end-line="112" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/DatatypeConverter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/BlockGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-469">
-          <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/Integer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/RandomString.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -882,38 +1068,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/LamportGenThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Certificate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4828">
-          <caret line="294" column="31" lean-forward="false" selection-start-line="294" selection-start-column="31" selection-end-line="294" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2499#2500#0" expanded="false" />
-            <element signature="e#2545#2546#0" expanded="false" />
-            <element signature="e#6879#6880#0" expanded="false" />
-            <element signature="e#6920#6921#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/LedgerManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3672">
           <caret line="229" column="41" lean-forward="false" selection-start-line="229" selection-start-column="41" selection-end-line="229" selection-end-column="41" />
@@ -929,21 +1099,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringDoublePair.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringDoublePair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="46" lean-forward="false" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/TransactionUtility.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2247">
           <caret line="109" column="57" lean-forward="false" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
@@ -953,7 +1116,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/PendingTransactionContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
@@ -961,21 +1124,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/InputThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/OutputThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
@@ -984,7 +1147,7 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerNetwork.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
@@ -992,7 +1155,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPC.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
@@ -1000,7 +1163,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPCThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="35" column="53" lean-forward="false" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
@@ -1008,7 +1171,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
@@ -1028,31 +1191,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/8443694/layer1.lyr" />
     <entry file="file://$PROJECT_DIR$/5855442/layer1.XXlyr" />
     <entry file="file://$PROJECT_DIR$/coffeecoin.db/blockchain-DONOTTOUCH.dat" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch" />
-    <entry file="file://$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1060,63 +1201,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat" />
     <entry file="file://$PROJECT_DIR$/addresses/C12HJFWLO2BNIJ7EY6ZGCY54SX7SCW7KPITY6K/info.dta" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/MerkleAddressUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4063">
-          <caret line="245" column="43" lean-forward="false" selection-start-line="245" selection-start-column="43" selection-end-line="245" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coffeecoin-db/balances.dat" />
-    <entry file="file://$PROJECT_DIR$/coffeecoin-db/blockchain-DONOTTOUCH.dat" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4131">
-          <caret line="252" column="63" lean-forward="false" selection-start-line="252" selection-start-column="63" selection-end-line="252" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="561" column="0" lean-forward="false" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin" />
     <entry file="file://$PROJECT_DIR$/coffeecoin.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,7 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,41 +1226,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat">
+    <entry file="file://$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="510">
+          <caret line="36" column="60" lean-forward="false" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+          <folding>
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#983#984#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4879">
+          <caret line="297" column="46" lean-forward="false" selection-start-line="297" selection-start-column="46" selection-end-line="297" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coffeecoin-db/balances.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coffeecoin-db/blockchain-DONOTTOUCH.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4301">
+          <caret line="259" column="83" lean-forward="false" selection-start-line="259" selection-start-column="83" selection-end-line="259" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2771">
+          <caret line="171" column="51" lean-forward="false" selection-start-line="171" selection-start-column="51" selection-end-line="171" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gradle/workspace-id.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/.name">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="85" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+        <state relative-caret-position="323">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#921#922#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="555" column="44" lean-forward="true" selection-start-line="555" selection-start-column="44" selection-end-line="555" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="82" lean-forward="true" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
   </component>
   <component name="gradleExecuteTaskHistory">
     <option value="$PROJECT_DIR$" />
+    <option value="fatJar" />
     <option value="build" />
-    <option value="run" />
     <option value="clean build" />
+    <option value="run" />
   </component>
   <component name="masterDetails">
     <states>
