@@ -2,82 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="463d630d-c335-4277-a51c-659b92f33682" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy_main.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/cozy_test.iml" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin_main.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/coffeecoin_test.iml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/BlockGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Certificate.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Constants.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/LedgerManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Main.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/MerkleAddressUtility.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/PendingTransactionContainer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/RandomString.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/StringDoublePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/TransactionUtility.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/Util.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/AddressManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/LamportGenThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Block.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/Blockchain.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/InputThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/OutputThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerNetwork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/PeerThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPC.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/io/codepace/coffeecoin/p2p/RPCThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" afterPath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" />
-      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/bin/coffeecoin.bat" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/argparse4j-0.8.1.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/coffeecoin-1.0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/install/coffeecoin/lib/commons-codec-1.11.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" afterPath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin" afterPath="$PROJECT_DIR$/build/scripts/coffeecoin" />
-      <change beforePath="$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png" afterPath="$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/BlockGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Certificate.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/LedgerManager.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/MerkleAddressUtility.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/PendingTransactionContainer.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/RandomString.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringDoublePair.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringDoublePair.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/TransactionUtility.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Util.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/LamportGenThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Block.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/InputThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/OutputThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerNetwork.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/PeerThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPC.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/p2p/RPCThread.java" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPCThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -1020,7 +945,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1031,7 +955,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.516165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1945629" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
@@ -1300,14 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1361,6 +1277,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
