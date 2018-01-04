@@ -5,7 +5,7 @@ Cozy is a cryptocurrency based on secure blockchain technology. Cozy uses peer-t
 
 # Running your own node.
 Since Cozy is built using Java, the node can be run on Linux, Windows, or macOS. Just clone the source and run your operating system's startup script
-(`Cozy.bat` for Windows, `Cozy` for *nix) or you can just execute `./gradlew run`.
+(`cozyd.bat` for Windows, `cozyd` for *nix) or you can just execute `./gradlew run`.
 # Built With
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/) - The IDE used to develop the project
 - [Gradle](https://gradle.org/) - Build tool/dependency management/project automation
