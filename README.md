@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/cbrnrd/Cozy.svg?branch=master)](https://travis-ci.org/cbrnrd/Cozy)
 [![Maintainability](https://api.codeclimate.com/v1/badges/aae0d10eee08ad31cf2a/maintainability)](https://codeclimate.com/github/cbrnrd/Cozy/maintainability)
 
-[![GitHub license](https://img.shields.io/github/license/cbrnrd/Cozy.svg?style=for-the-badge)](https://github.com/cbrnrd/Cozy)
+[![GitHub license](https://img.shields.io/github/license/cbrnrd/Cozy.svg?style=for-the-badge)](https://github.com/cbrnrd/Cozy/blob/master/LICENSE)
 
 # What is Cozy?
 Cozy is a cryptocurrency based on secure blockchain technology. Cozy uses peer-to-peer networking to keep payments secure and without a central authority. Cozy Core (this repo) is the name of the open source software backend which enables the use of this currency.
