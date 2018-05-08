@@ -45,6 +45,15 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+task buildAll{
+    println "Building main executable JAR..."
+    dependsOn fatJar
+    println "Building Javadoc JAR..."
+    dependsOn javadocJar
+    println "Creating sources JAR..."
+    dependsOn sourcesJar
+}
+
 artifacts {
     archives sourcesJar
     archives javadocJar
