@@ -1,7 +1,5 @@
 package io.codepace.cozy.p2p;
 
-import static io.codepace.cozy.Util.*;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;

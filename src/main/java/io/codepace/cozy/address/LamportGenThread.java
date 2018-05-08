@@ -1,6 +1,7 @@
 package io.codepace.cozy.address;
 
-import java.security.*;
+import java.security.MessageDigest;
+import java.security.SecureRandom;
 
 
 public class LamportGenThread extends Thread

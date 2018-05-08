@@ -1,7 +1,5 @@
 package io.codepace.cozy.p2p;
 
-import io.codepace.cozy.Util;
-
 import java.net.Socket;
 
 /**

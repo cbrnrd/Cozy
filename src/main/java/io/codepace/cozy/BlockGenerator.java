@@ -1,12 +1,8 @@
 package io.codepace.cozy;
 
-import java.security.MessageDigest;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.logging.Level;
 import javax.xml.bind.DatatypeConverter;
-
-import static io.codepace.cozy.Util.getLogger;
+import java.security.MessageDigest;
+import java.util.ArrayList;
 
 
 /**

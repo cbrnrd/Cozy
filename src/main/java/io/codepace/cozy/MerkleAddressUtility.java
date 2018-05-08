@@ -6,8 +6,6 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-import static io.codepace.cozy.Util.*;
-
 /**
  * This class provides all methods necessary to use an address after it has been generated.
  */

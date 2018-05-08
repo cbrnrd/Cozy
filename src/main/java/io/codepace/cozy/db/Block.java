@@ -2,11 +2,10 @@ package io.codepace.cozy.db;
 
 import io.codepace.cozy.Certificate;
 import io.codepace.cozy.MerkleAddressUtility;
-import io.codepace.cozy.Util;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-import javax.xml.bind.DatatypeConverter;
 /**
  * This class provides all functionality related to block verification and usage.
  * A block contains:

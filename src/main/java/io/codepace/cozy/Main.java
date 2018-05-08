@@ -6,14 +6,14 @@ import io.codepace.cozy.db.CozyDatabaseMaster;
 import io.codepace.cozy.p2p.PeerNetwork;
 import io.codepace.cozy.p2p.RPC;
 
-import static io.codepace.cozy.Util.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import static io.codepace.cozy.Util.*;
 
 /**
  * This is the class that ties everything together

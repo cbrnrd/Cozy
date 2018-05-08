@@ -2,11 +2,8 @@ package io.codepace.cozy.db;
 
 import io.codepace.cozy.MerkleAddressUtility;
 
-import static io.codepace.cozy.Util.*;
-
 import java.io.File;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
 

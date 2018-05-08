@@ -1,11 +1,8 @@
 package io.codepace.cozy;
 
 import java.security.MessageDigest;
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
-
-import static io.codepace.cozy.Util.*;
 
 /**
  * This class provides all functionality related to certificate verification and usage.

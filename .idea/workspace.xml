@@ -2,70 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="463d630d-c335-4277-a51c-659b92f33682" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringLongPair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.initial" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/BlockGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/Certificate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/LedgerManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/MerkleAddressUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/PendingTransactionContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/RandomString.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/StringDoublePair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/TransactionUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/address/AddressManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/address/LamportGenThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/address/MerkleTreeGenLimitless.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/db/Block.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/db/Blockchain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/db/CoffeecoinDatabaseMaster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/InputThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/OutputThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/PeerNetwork.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/PeerThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/RPC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/codepace/coffeecoin/p2p/RPCThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/coffeecoin-1.0.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/.initial" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-db/balances.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/coffeecoin-db/blockchain-DONOTTOUCH.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/coffeecoin.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/fatJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffeecoin-db/balances.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffeecoin-db/blockchain-DONOTTOUCH.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringDoublePair.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -119,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
-              <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
               <folding>
                 <element signature="e#872#873#0" expanded="true" />
                 <element signature="e#915#916#0" expanded="true" />
@@ -134,7 +97,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3475">
-              <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-78">
+              <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -152,16 +124,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="94" column="103" selection-start-line="94" selection-start-column="103" selection-end-line="94" selection-end-column="103" />
+              <caret line="91" column="103" selection-start-line="91" selection-start-column="103" selection-end-line="91" selection-end-column="103" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -170,16 +142,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Blockchain.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Blockchain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+            <state relative-caret-position="408">
+              <caret line="66" column="6" lean-forward="true" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,7 +163,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="32" column="83" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
+              <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
               <folding>
                 <element signature="e#586#587#0" expanded="true" />
                 <element signature="e#622#623#0" expanded="true" />
@@ -266,6 +238,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Carter Brainerd &lt;0xcb@protonmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -350,6 +327,10 @@
                 <option name="name" value="wrapper" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="sourcesJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles test classes." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="testClasses" />
@@ -412,6 +393,14 @@
                 <option name="description" value="Compiles main Java source." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="javadocJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildAll" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the insight into a specific dependency in root project 'cozy'." />
@@ -485,9 +474,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6058689452944" />
+        <entry key="$PROJECT_DIR$" value="6069494891418" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2731726255" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2821644949" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1061797022" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="753087814" />
       </map>
@@ -629,7 +618,6 @@
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/AddressManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" />
@@ -655,6 +643,7 @@
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -685,6 +674,51 @@
             <path>
               <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
               <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="codepace" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="codepace" type="462c0819:PsiDirectoryNode" />
+              <item name="cozy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -789,6 +823,116 @@
       <recent name="io.codepace.coffeecoin" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build.gradle</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -801,12 +945,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.coffeecoin [run]">
+  <component name="RunManager" selected="Gradle.coffeecoin [build --scan]">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="coffeecoin [build --scan]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+            <option value="--scan" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
     </configuration>
     <configuration name="coffeecoin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -840,24 +1002,6 @@
           </list>
         </option>
         <option name="vmOptions" />
-      </ExternalSystemSettings>
-    </configuration>
-    <configuration name="coffeecoin [clean build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
     </configuration>
     <configuration name="coffeecoin [fatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -957,18 +1101,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.coffeecoin [run]" />
-      <item itemvalue="Gradle.coffeecoin [clean build]" />
       <item itemvalue="Gradle.coffeecoin [build]" />
       <item itemvalue="Gradle.coffeecoin [fatJar]" />
       <item itemvalue="Gradle.coffeecoin [check]" />
+      <item itemvalue="Gradle.coffeecoin [build --scan]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.coffeecoin [build --scan]" />
         <item itemvalue="Gradle.coffeecoin [run]" />
         <item itemvalue="Gradle.coffeecoin [check]" />
         <item itemvalue="Gradle.coffeecoin [fatJar]" />
         <item itemvalue="Gradle.coffeecoin [build]" />
-        <item itemvalue="Gradle.coffeecoin [clean build]" />
       </list>
     </recent_temporary>
   </component>
@@ -982,8 +1126,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1513874777344</updated>
-      <workItem from="1525729308915" duration="7078000" />
+      <workItem from="1525729308915" duration="9851000" />
     </task>
+    <task id="LOCAL-00001" summary=":boom: Major refactor and code cleanup">
+      <created>1525747304563</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525747304563</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -995,7 +1147,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7078000" />
+    <option name="totallyTimeSpent" value="9851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="17" width="1696" height="1066" extended-state="6" />
@@ -1020,10 +1172,10 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.3524862" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3281768" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3281768" />
       <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.17481662" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32928178" />
-      <window_info anchor="right" id="Gradle" order="7" weight="0.1888753" />
+      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.1888753" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -1041,6 +1193,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
+    <MESSAGE value=":boom: Major refactor and code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value=":boom: Major refactor and code cleanup" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/scripts/coffeecoin.bat">
@@ -1080,13 +1234,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/img/MAIN_IMG_AND_LOGO.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -1289,24 +1436,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="32" column="83" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
+          <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
           <folding>
             <element signature="e#586#587#0" expanded="true" />
             <element signature="e#622#623#0" expanded="true" />
@@ -1324,7 +1461,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#872#873#0" expanded="true" />
             <element signature="e#915#916#0" expanded="true" />
@@ -1337,7 +1474,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3475">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1354,7 +1491,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="94" column="103" selection-start-line="94" selection-start-column="103" selection-end-line="94" selection-end-column="103" />
+          <caret line="91" column="103" selection-start-line="91" selection-start-column="103" selection-end-line="91" selection-end-column="103" />
         </state>
       </provider>
     </entry>
@@ -1364,13 +1501,31 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="66" column="6" lean-forward="true" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="gradleExecuteTaskHistory">
     <option value="$PROJECT_DIR$" />
+    <option value="build --scan" />
     <option value="run" />
     <option value="fatJar" />
     <option value="build" />

@@ -1,6 +1,5 @@
 package io.codepace.cozy;
 
-import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

@@ -1,19 +1,12 @@
 package io.codepace.cozy.address;
 
 import io.codepace.cozy.MerkleAddressUtility;
-import io.codepace.cozy.RandomString;
-import io.codepace.cozy.Util;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static io.codepace.cozy.Util.*;
 
 /**
  * Manages all resources associated with addresses. Holds all address private keys, and keeps track of the offset for the default address.

@@ -3,15 +3,10 @@ package io.codepace.cozy;
 import javax.xml.bind.DatatypeConverter;
 import java.io.File;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
-
-import static io.codepace.cozy.Util.*;
 
 public class LedgerManager {
     private File addressDatabase;

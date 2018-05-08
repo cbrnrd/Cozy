@@ -1,8 +1,6 @@
 package io.codepace.cozy;
 
 import java.util.ArrayList;
-
-import static io.codepace.cozy.Util.*;
 /**
  * TransactionUtility simplifies a few basic tasks dealing with transaction parsing and verification.
  */

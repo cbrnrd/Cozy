@@ -1,7 +1,5 @@
 package io.codepace.cozy.address;
 
-import io.codepace.cozy.Constants;
-
 import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Files;

@@ -1,6 +1,5 @@
 plugins {
   id 'com.gradle.build-scan' version '1.11'
-
 }
 
 group 'io.codepace'
@@ -46,11 +45,8 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 task buildAll{
-    println "Building main executable JAR..."
     dependsOn fatJar
-    println "Building Javadoc JAR..."
     dependsOn javadocJar
-    println "Creating sources JAR..."
     dependsOn sourcesJar
 }
 
