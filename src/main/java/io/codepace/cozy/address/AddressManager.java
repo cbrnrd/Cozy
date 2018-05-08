@@ -8,142 +8,147 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static io.codepace.cozy.Util.*;
 
-
 /**
- * This class manages all things associated with the node address. That includes
- * all private keys, and keep track of the offset for default addresses.
+ * Manages all resources associated with addresses. Holds all address private keys, and keeps track of the offset for the default address.
+ * Future plans include tracking the consumed signature offset for all addresses, and expanding this class extensively for full multi-address support.
+ * Default addresses make 0.2.01 much easier to test/deal with, but final releases will function similar to the Bitcoin wallet for addresses--generate as many as you need.
+ * Addresses won't be bound to a particular wallet, private keys can be transferred at will, etc. Coming soon :)
  */
 public class AddressManager {
-
-    private ArrayList<String> addrs;
+    private ArrayList<String> addresses;
     private ArrayList<String> privateKeys;
     private MerkleTreeGenLimitless treeGen;
-    private int defaultOffset = 1;
-    private Logger logger = Util.getLogger();
+    private int defaultAddressOffset = 1;
 
-    public AddressManager(){
+    /**
+     * Loads in wallet private key. If none exist, generates an address.
+     */
+    public AddressManager() {
         this.treeGen = new MerkleTreeGenLimitless();
         this.privateKeys = new ArrayList<>();
-        this.addrs = new ArrayList<>();
-        try{
-            File wallet = new File("wallet-keys.dat");
-            if(!wallet.exists()){
-                getLogger().info("Generating new address...");
-                String key = getPrivateKey();
-                String address = treeGen.generateMerkleTree(key, 14, 16, 128);
-                System.out.println("New address: " + Util.ANSI_GREEN + address + Util.ANSI_RESET);
-                logger.log(Level.INFO, "New address generated: " + address);
-
-                // Write the addr and key out to the walletfile
-                PrintWriter out = new PrintWriter(wallet);
-                out.println(address + ":" + key);
+        this.addresses = new ArrayList<>();
+        try {
+            File walletFile = new File("wallet.keys");
+            if (!walletFile.exists()) {
+                System.out.println("Generating a new address...");
+                String privateKey = getPrivateKey();
+                String address = treeGen.generateMerkleTree(privateKey, 14, 16, 128);
+                System.out.println("New address: " + address);
+                PrintWriter out = new PrintWriter(walletFile);
+                out.println(address + ":" + privateKey);
                 out.close();
-
-                // Append the address to the address list
-                addrs.add(address);
-
-                privateKeys.add(key);
+                addresses.add(address);
+                privateKeys.add(privateKey);
             } else {
-                Scanner sc = new Scanner(wallet);
-                while (sc.hasNextLine()){
-                    String in = sc.nextLine();
-                    String addr = in.substring(0, in.indexOf(":"));
-                    String privateKey = in.substring(in.indexOf(":") + 1);
-                    addrs.add(addr);
+                Scanner scan = new Scanner(walletFile);
+                while (scan.hasNextLine()) {
+                    String input = scan.nextLine();
+                    String address = input.substring(0, input.indexOf(":"));
+                    String privateKey = input.substring(input.indexOf(":") + 1);
+                    addresses.add(address);
                     privateKeys.add(privateKey);
                 }
-                sc.close();
+                scan.close();
             }
             File addressFolder = new File("addresses");
-            if (addressFolder.exists()){
-                Scanner sc = new Scanner(wallet);
-                while (sc.hasNextLine()){
-                    String[] combo = sc.nextLine().split(":");
+            if (!addressFolder.exists()) {
+                Scanner scan = new Scanner(walletFile);
+                while (scan.hasNextLine()) {
+                    String[] combo = scan.nextLine().split(":");
                     treeGen.generateMerkleTree(combo[1], 14, 16, 128);
                 }
-                sc.close();
-            } else{
-                logger.log(Level.INFO, "No need to regenerate address file");
+                scan.close();
+            } else {
+                System.out.println("Don't need to regen address file...");
             }
-        } catch (IOException e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Return the offset of the address index. This is used when signing transaction with the default address.
-     * If this were kept track of by the database manager, then block generation would be tricky.
-     * defaultOffset is always > 1.
-     * @return int The offset for the default address
+     * This method returns the address index offset, which is used when signing transactions with the default address. If this were kept track of by the databaseManager, block generation would be tricky.
+     * defaultAddressOffset is always at least 1, as it is added to the most-recently-used index (from the blockchain) to calculate which index should be used for signing the next transaction.
+     *
+     * @return long The offset for the default address
      */
-    public int getDefaultOffset(){
-        return defaultOffset;
+    public int getDefaultAddressIndexOffset() {
+        return defaultAddressOffset;
     }
 
     /**
-     * Increments defaultOffset in order to account for a sig being used.
+     * This method increments the defaultAddressIndexOffset in order to account for a signature being used.
      */
-    public void incrementDefaultOffset(){
-        defaultOffset++;
+    public void incrementDefaultAddressIndexOffset() {
+        defaultAddressOffset++;
     }
 
     /**
-     * This method resets the defaultOffset to 1 (its original state). This is useful when the blockchain has caught up
-     * with the transactions we've sent.
+     * This method resets the defaultAddressOffset to 0; useful when the blockchain has caught up with the transactions we sent.
      */
-    public void resetDefaultOffset(){
-        defaultOffset = 1;
+    public void resetDefaultAddressIndexOffset() {
+        defaultAddressOffset = 1;
     }
 
     /**
-     * Returns the private key of the wallets default address.
-     * @return String The private key of the daemon's default address.
+     * This method returns the private key of the wallet's default address.
+     *
+     * @return String Private key of the daemon's default address.
      */
-    public String getDefaultPrivateKey(){
+    public String getDefaultPrivateKey() {
         return privateKeys.get(0);
     }
 
-    public String getSignedTransaction(String dest, double amount, int index){
-        String data = getDefaultAddress() + "::" + amount + "::" + dest + "::" + amount;
-        String sig = new MerkleAddressUtility().getMerkleSignature(data, getDefaultPrivateKey(), index, getDefaultAddress());
-        String fullTx = data + "::" + sig + "::" + index;
-        return fullTx;
+    public String getSignedTransaction(String destinationAddress, long sendAmount, int signatureIndex) {
+        String transactionData = getDefaultAddress() + ";" + sendAmount + ";" + destinationAddress + ";" + sendAmount;
+        String signature = new MerkleAddressUtility().getMerkleSignature(transactionData, privateKeys.get(0), signatureIndex, getDefaultAddress());
+        return transactionData + ";" + signature + ";" + signatureIndex;
     }
 
-
     /**
-     * Returns the default address (the first one from the address file, or the one that was originally generated by the daemon's first run)
-     * @return String The default address
+     * Returns the 'default' address, which is the first one from loading up the address file, or the one that was originally generated with the daemon first ran.
+     *
+     * @return String Default address
      */
-    public String getDefaultAddress(){
-        return addrs.get(0);
+    public String getDefaultAddress() {
+        return addresses.get(0);
     }
 
     /**
      * Returns a new address
+     *
      * @return String A new address
      */
-    public String getNewAddress()
-    {
+    public String getNewAddress() {
         String privateKey = getPrivateKey();
         String address = treeGen.generateMerkleTree(privateKey, 14, 16, 128);
-        addrs.add(address);
+        addresses.add(address);
         privateKeys.add(privateKey);
         return address;
     }
 
     /**
-     * This generates and returns a secure private key
-     * @return String A secure private key
+     * There is NO WAY this method will appear in any recognizable form in the actual 2.0 release.
+     * This IS NOT a safe way to generate private keys--the output of Java's default Random number generator isn't sufficient.
+     * Final release will use a variety of system information including mouse movements, timing of process threads, and SecureRandom.
+     * This is for simplicity's sake during 0.2.01, I have most of the code ready for the final private key generation, but it needs some tweaking.
+     *
+     * @return String An insecure private key (seed for Lamport Signatures)
      */
-    public String getPrivateKey(){
-        return new RandomString().nextString();
+    public String getPrivateKey() {
+        String characterSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random random = new Random();
+        String privateKey = "";
+        for (int i = 0; i < 32; i++) {
+            privateKey += characterSet.charAt(random.nextInt(characterSet.length()));
+        }
+        return privateKey;
     }
-
 }

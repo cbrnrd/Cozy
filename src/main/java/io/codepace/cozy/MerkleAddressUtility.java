@@ -8,42 +8,72 @@ import java.util.Scanner;
 
 import static io.codepace.cozy.Util.*;
 
-public class MerkleAddressUtility {
-    private static final String C = RandomString.alphanum;
+/**
+ * This class provides all methods necessary to use an address after it has been generated.
+ */
+public class MerkleAddressUtility
+{
+    private static final String CS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //Character set used in Lamport Private Key Parts
     private static org.apache.commons.codec.binary.Base32 base32 = new org.apache.commons.codec.binary.Base32();
     private static org.apache.commons.codec.binary.Base64 base64 = new org.apache.commons.codec.binary.Base64();
     private MessageDigest md;
     private MessageDigest md512;
-    private static final boolean verbose = false;
+    private static final boolean verboseMode = false;
 
-    public MerkleAddressUtility(){
-        try{
+    public static void main(String[] args) //Another test method to be removed, currently blank
+    {
+    }
+
+    /**
+     * Constructor readies the MessageDigest md object to compute SHA-256 hashes, and ensures existance
+     * of address folder for storing the Merkle Trees. Also checks for availability of SHA1PRNG.
+     */
+    public MerkleAddressUtility()
+    {
+        try
+        {
             SecureRandom.getInstance("SHA1PRNG");
-        } catch (Exception e){
-            System.out.println(ANSI_RED + "No SHA1PRNG support! Exiting." + ANSI_RESET);
-            System.exit(-1);
+        } catch (Exception e)
+        {
+            System.out.println("CRITICAL ERROR: NO SHA1PRNG SUPPORT! EXITING APPLICATION");
         }
-        try{
+        try
+        {
             md = MessageDigest.getInstance("SHA-256");
             md512 = MessageDigest.getInstance("SHA-512");
-        } catch (Exception e){
-            System.out.println(ANSI_RED + "No SHA-256/512 support. Exiting." + ANSI_RESET);
+        } catch (Exception e)
+        {
+            System.out.println("CRITICAL ERROR: NO SHA-256 SUPPORT! EXITING APPLICATION");
             e.printStackTrace();
             System.exit(-1);
         }
-        try{
-            File addrFolder = new File("addresses");
-            if(!addrFolder.exists()){
-                addrFolder.mkdir();
+        try
+        {
+            File addressFolder = new File("addresses");
+            if (!addressFolder.exists())
+            {
+                addressFolder.mkdir();
             }
-        } catch (Exception e){
-            System.out.println(ANSI_RED + "Unable to create folder for address storage. Exiting." + ANSI_RESET);
+        } catch (Exception e)
+        {
+            System.out.println("CRITICAL ERROR: UNABLE TO CREATE FOLDER FOR ADDRESS STORAGE! EXITING APPLICATION");
             e.printStackTrace();
             System.exit(-1);
         }
     }
 
-    public boolean verifyMerkleSignature(String message, String signature, String address, long index){
+    /**
+     * This method will verify that the supplied address signed the supplied message to generate the supplied signature.
+     *
+     * @param message The message of which to verify the signature
+     * @param signature The signature to verify
+     * @param address The address to check the signature against
+     * @param index The index of the Lamport Keypair used (position on bottom of Merkle tree)
+     *
+     * @return boolean Whether the message was signed by the provided address using the provided index
+     */
+    public boolean verifyMerkleSignature(String message, String signature, String address, long index)
+    {
         try
         {
             String lamportSignature = signature.substring(0, signature.indexOf(","));
@@ -60,7 +90,7 @@ public class MerkleAddressUtility {
             }
             //Lamport Signatures work with binary, so we need a binary string representing the hash of the message we want verify the signature of
             String binaryToCheck = SHA256Binary(message);
-            //Cozy Lamport Signatures sign the first 100 bytes of the hash. To generate a message colliding with the signature, one would need on average 2^99 tries
+            //Cozycoin Lamport Signatures sign the first 100 bytes of the hash. To generate a message colliding with the signature, one would need on average 2^99 tries
             binaryToCheck = binaryToCheck.substring(0, 100);
             //The Lamport Public Key will be 200 Strings in size
             String[] lamportPublicKey = new String[200];
@@ -103,7 +133,7 @@ public class MerkleAddressUtility {
             {
                 lamportPublicSignatureFull += lamportPublicKey[i];
             }
-            if (verbose)
+            if (verboseMode)
             {
                 System.out.println("lmpSig: " + lamportPublicSignatureFull);
             }
@@ -135,7 +165,7 @@ public class MerkleAddressUtility {
                 {
                     rollingHash = SHA256(merkleAuthPathComponents[i] + rollingHash);
                 }
-                if (verbose)
+                if (verboseMode)
                 {
                     System.out.println("rollingHash: " + rollingHash + " and auth component: " + merkleAuthPathComponents[i]);
                 }
@@ -162,7 +192,18 @@ public class MerkleAddressUtility {
         return false; //Fell through at some point, likely the address didn't match
     }
 
-    public String getMerkleSignature(String message, String privateKey, long index, String address){
+    /**
+     * This method will completely sign a message using the privateKey and Lamport Keypair Index supplied.
+     *
+     * @param message The message to sign
+     * @param privateKey The original private key
+     * @param index The index of the Lamport Keypair to sign with
+     * @param address The Cozycoin 0.2.0 address
+     *
+     * @return String The Merkle Signature consisting of a 200-part Lamport Signature along with the authentication path up the Merkle Tree
+     */
+    public String getMerkleSignature(String message, String privateKey, long index, String address)
+    {
         File infoFile = new File("addresses/" + address + "/info.dta");
         if (!infoFile.exists())
         {
@@ -170,7 +211,7 @@ public class MerkleAddressUtility {
         }
         //Lamport Signatures work with binary, so we need a binary string representing the hash of the message we want to sign
         String binaryToSign = SHA256Binary(message);
-        //Curecoin Lamport Signatures sign the first 100 bytes of the hash. To generate a message colliding with the signature, one would need on average 2^99 tries
+        //Cozycoin Lamport Signatures sign the first 100 bytes of the hash. To generate a message colliding with the signature, one would need on average 2^99 tries
         binaryToSign = binaryToSign.substring(0, 100);
         //The 200 Lamport Private Key Parts, 100 of which will appear as-is in the final signature
         String[] lamportPrivateKeyParts = getLamportPrivateKeyParts(privateKey, index);
@@ -249,13 +290,13 @@ public class MerkleAddressUtility {
                 {
                     readLayerFile.nextLine(); //Nom-nom
                 }
-                if (verbose)
+                if (verboseMode)
                 {
                     System.out.println("Consumed " + authPathIndexes[i] + " from layer " + i + ".");
                 }
                 String layerData = readLayerFile.nextLine();
                 readLayerFile.close();
-                if (verbose)
+                if (verboseMode)
                 {
                     System.out.println("We think the " + (authPathIndexes[i]) + "th index is " + layerData + ".");
                 }
@@ -274,13 +315,48 @@ public class MerkleAddressUtility {
         return lamportSignature + "," + merklePath;
     }
 
-    public static long[] getAuthenticationPathIndexes(long start, int layers){
+    /**
+     * This method is useful when reading integers from configuration files.
+     *
+     * @param toTest String to test integer-ness of
+     *
+     * @return Whether the number is an integer or not
+     */
+    public boolean isInteger(String toTest)
+    {
+        try
+        {
+            Integer.parseInt(toTest);
+            return true;
+        } catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    /**
+     * This method returns a Long array of the required authentication path's locations.
+     * The authentication path represents, starting at layer 0, what element of each layer must be revealed to allow peers to verify
+     * The signature as legitimate.
+     *
+     * @param startingIndex The index of the Lamport Keypair used
+     * @param layers The number of layers in the tree
+     *
+     * @return long[] Long array holding the authentication path indexes generated from a given startingIndex and moving up for a given number of layers.
+     */
+    public static long[] getAuthenticationPathIndexes(long startingIndex, int layers)
+    {
+        //Top layer will always be the address, no need to return this part, so only need layers-1 total layers.
         long[] authPath = new long[layers - 1];
-        long workingIndex = start;
-        for (int i = 0; i < layers; i++) {
-            if (workingIndex % 2 == 0) {
+        long workingIndex = startingIndex;
+        for (int i = 0; i < layers - 1; i++)
+        {
+            if (workingIndex % 2 == 0) //workingIndex is even
+            {
                 authPath[i] = workingIndex + 1;
-            } else {
+            }
+            else //workingIndex is odd
+            {
                 authPath[i] = workingIndex - 1;
             }
             workingIndex /= 2;
@@ -288,76 +364,106 @@ public class MerkleAddressUtility {
         return authPath;
     }
 
-    public String[] getLamportPrivateKeyParts(String privateKey, long index){
-        try{
-            String[] privateKeyParts = new String[200];
+    /**
+     * This method uses an original private key for an address, and returns the Lamport private key (capable of signing a 100-bit mesasge) from the spot defined by index
+     * with each element separated by a colon.
+     *
+     * @param privateKey The original private key of the Cozycoin address in question
+     * @param index The index of the Lamport Signature (bottom layer of Merkle Tree) to return
+     *
+     * @return String[] A String[] containing the 200 Lamport Private Key Parts
+     */
+    public String[] getLamportPrivateKeyParts(String privateKey, long index)
+    {
+        try
+        {
+            String[] privateKeyParts = new String[200]; //Holds 200 Private Key Parts, to sign a 100-bit message
+            //Need to create a seeded SecureRandom so we can acquire the private seed for the desired Lamport Keypair
             SecureRandom generatePrivateSeeds = SecureRandom.getInstance("SHA1PRNG");
             generatePrivateSeeds.setSeed(privateKey.getBytes());
-            // Loop through filling privateSeed until we reach the right index
+            //Will loop through filling privateSeed until we reach the correct index
             byte[] privateSeed = new byte[100];
-            for (int i = 0; i <= index; i++) {
+            for (int i = 0; i <= index; i++)
+            {
                 generatePrivateSeeds.nextBytes(privateSeed);
             }
+            //lmpPrivGen seeded with the above-found privateSeed, and then used by getLamportPrivateKey
             SecureRandom lmpPrivGen = SecureRandom.getInstance("SHA1PRNG");
             lmpPrivGen.setSeed(privateSeed);
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 200; i++) //Can sign a 100-bit message with 200 private key parts
+            {
                 privateKeyParts[i] = getLamportPrivateKeyPart(lmpPrivGen);
             }
             return privateKeyParts;
-        } catch (Exception e){
-            getLogger().info("Unable to generate lamport key parts. Exiting.");
+        } catch (Exception e)
+        {
+            System.out.println("CRITICAL ERROR: UNABLE TO GENERATE LAMPORT PRIVATE KEY PARTS");
             e.printStackTrace();
             System.exit(-2);
         }
         return null;
     }
 
-    private String getLamportPrivateKeyPart(SecureRandom lmpPrivGen){
-        int len = C.length();
-        // My god it's ugly but it is faster than a loop. This will run A LOT OF TIMES (in the billions)
-        //For a 14-layer address, this method is called 200*(2^13) times. That's 1,638,400 times. That's a lot, so every milisecond counts.
-        return "" + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) +
-                C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) +
-                C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) +
-                C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len)) + C.charAt(lmpPrivGen.nextInt(len));
+    /**
+     * This method generates a 20-character String for Lamport Keypairs from the SecureRandom object passed to it, pulling characters for the String from the alphanumeric global String CS
+     *
+     * @param lmpPrivGen the SecureRandom seeded with the proper Lamport Private Key
+     *
+     * @return String One Private Key Part for the Lamport Private Key
+     */
+    private String getLamportPrivateKeyPart(SecureRandom lmpPrivGen)
+    {
+        int len = CS.length();
+        //It's ugly. I know. A loop would be prettier, but in benchmarks this is slightly faster. And for something that's gonna be run billions of times, that's important.
+        //For a 14-layer address, this method is called 200*(2^13) times. That's 1,638,400 times. That's a lot.
+        return "" + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) +
+                CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) +
+                CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) +
+                CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len)) + CS.charAt(lmpPrivGen.nextInt(len));
     }
 
     /**
      * This method checks an address to ensure proper formatting.
-     * Cozy address format: Prefix + TreeRoot + VerificationHash
-     * Prefix is CF(1-5). Any address starting with A1 is a special address used by signature authorities.
-     * CF1 means 14 layer, CF2 means 15 layer, CF3 means 16 layer, CF4 means 17 layer, CF5 means 18 layer.
+     * Cozycoin address format: Prefix + TreeRoot + VerificationHash
+     * Prefix can be C1, C2, C3, C4, or C5. Any address starting with A1 is a special address used by signature authorities.
+     * C1 means 14 layer, C2 means 15 layer, C3 means 16 layer, C4 means 17 layer, C5 means 18 layer.
      * TreeRoot is an all-caps Base32 32-character-long SHA256 hash that represents the top of the Merkle Tree for the respective address.
      * VerificationHash is the first four digits of the Base32 SHA256 hash of TreeRoot, also in caps.
      *
-     * @param addr The address to test for validity
+     * @param address The address to test for validity
      *
      * @return boolean Whether the address is formatted correctly
      */
-    public boolean isAddressFormattedCorrectly(String addr){
-        try{
-            String prefix = addr.substring(0, 3); // Prefix is at the first 3 chars of the address
-            if(!prefix.equals("CF1") && !prefix.equals("CF2") && !prefix.equals("CF3") && !prefix.equals("CF4") && !prefix.equals("CF5")){
+    public boolean isAddressFormattedCorrectly(String address)
+    {
+        try
+        {
+            String prefix = address.substring(0, 2); //Prefix is 2 characters long
+            if (!prefix.equals("C1") && !prefix.equals("C2") && !prefix.equals("C3") && !prefix.equals("C4") && !prefix.equals("C5"))
+            {
                 return false;
             }
-            String treeRoot = addr.substring(3, 35); // 32 chars long. All caps
-            String charset = RandomString.upper + "234567";
-            for (int i = 0; i < treeRoot.length(); i++) {
-                if(!charset.contains(treeRoot.charAt(i) + "")){
+            String treeRoot = address.substring(2, 34); //32 characters long. Should be all-caps Base32
+            String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"; //Normal Base32 character set. All upper case! Omission of 1 is normal. :)
+            for (int i = 0; i < treeRoot.length(); i++)
+            {
+                if (!characterSet.contains(treeRoot.charAt(i) + ""))
+                {
                     return false;
                 }
             }
-            String givenEnding = addr.substring(35);
-            String correctEnding = SHA256ReturnBase32(prefix + treeRoot).substring(0, 4);
-            if(!correctEnding.equals(givenEnding)){
+            String givenEnding = address.substring(34); //Characters 34 to 37 should be all that's left. Remember we start counting at 0.
+            String correctEnding = SHA256ReturnBase32(prefix + treeRoot).substring(0, 4); //First four characters of Base32-formatted SHA256 of treeRoot
+            if (!correctEnding.equals(givenEnding))
+            {
                 return false;
             }
-            return true;
-        } catch (Exception e){
+            return true; //We didn't return false for a failure, it must be valid!
+        } catch (Exception e) //Not printing exceptions or logging them on purpose. Any time an address too short is passed in, this will snag it.
+        {
             return false;
         }
     }
-
 
     /**
      * This SHA512 function returns the full-length SHA512 hash of the String toHash.
@@ -459,4 +565,3 @@ public class MerkleAddressUtility {
         return null;
     }
 }
-

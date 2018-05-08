@@ -18,7 +18,7 @@ Since Cozy is built using Java, the node can be run on Linux, Windows, or macOS.
 - [Travis-CI](https://travis-ci.org/) - Continuous Integration tool
 
 # Author
-- Carter Brainerd - Creator and founder of [Codepace](http://codepace.io) - [Website](carterbrainerd.me)
+- Carter Brainerd - Creator and founder of [Codepace](http://codepace.io) - [Website](http://carterbrainerd.me)
 
 # License
 Cozy Core is released under the terms of the MIT license. See [LICENSE](https://github.com/cbrnrd/Cozy/blob/master/LICENSE) for more information.

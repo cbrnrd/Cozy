@@ -14,159 +14,112 @@ import java.util.concurrent.ConcurrentHashMap;
 import static io.codepace.cozy.Util.*;
 
 public class LedgerManager {
-
-    private File addrDb;
-    public String addrDbName;
-    private ConcurrentHashMap<String, Double> addressBalances;
+    private File addressDatabase;
+    public String addressDatabaseName;
+    private ConcurrentHashMap<String, Long> addressBalances;
     private ConcurrentHashMap<String, Integer> addressSignatureCounts;
-    private ArrayList<String> addrs;
-    private MerkleAddressUtility merkle = new MerkleAddressUtility();
-    public int lastBlockIndex = -1;
+    private ArrayList<String> addresses;
+    private MerkleAddressUtility merkleAddressUtility = new MerkleAddressUtility();
+    public int lastBlockNum = -1;
 
-    public LedgerManager(String addrDb) {
-        this.addrDbName = addrDb;
-        this.addrDb = new File(addrDb);
-        this.addrs = new ArrayList<String>();
-        addressBalances = new ConcurrentHashMap<>(0x4000);
-        addressSignatureCounts = new ConcurrentHashMap<>(0x4000);
-        if (this.addrDb.exists()) {
+    /**
+     * Constructor for LedgerManager. All that is needed is the path to the address database file.
+     * <p>
+     * All peers on the network should have an identical copy of the LedgerManager object at any given time.
+     * Due to latency and whatnot, that doesn't happen, but a fully synchronized network would have the same ledger on every node at any time.
+     *
+     * @param addressDatabase The String representation of the address database file
+     */
+    public LedgerManager(String addressDatabase) {
+        this.addressDatabaseName = addressDatabase;
+        this.addressDatabase = new File(addressDatabase);
+        this.addresses = new ArrayList<>();
+        addressBalances = new ConcurrentHashMap<String, Long>(16384);
+        addressSignatureCounts = new ConcurrentHashMap<String, Integer>(16384);
+        if (this.addressDatabase.exists()) {
             try {
-                Scanner sc = new Scanner(this.addrDb);
-                this.lastBlockIndex = Integer.parseInt(sc.nextLine());
-                while (sc.hasNextLine()) {
-                    String in = sc.nextLine();
-                    if (in.contains(":")) {
-                        String[] parts = in.split(":");
-                        String addr = parts[0];
-                        if (merkle.isAddressFormattedCorrectly(addr)) {
+                Scanner readAddressDatabase = new Scanner(this.addressDatabase);
+                this.lastBlockNum = Integer.parseInt(readAddressDatabase.nextLine());
+                while (readAddressDatabase.hasNextLine()) {
+                    String input = readAddressDatabase.nextLine();
+                    if (input.contains(":")) {
+                        String[] parts = input.split(":");
+                        String address = parts[0];
+                        if (merkleAddressUtility.isAddressFormattedCorrectly(address)) {
                             try {
-                                double balance = Double.parseDouble(parts[1]);
-                                int currentSigCount = Integer.parseInt(parts[2]);
-                                addressBalances.put(addr, balance);
-                                addressSignatureCounts.put(addr, currentSigCount);
-                                addrs.add(addr);
+                                long addressBalance = Long.parseLong(parts[1]);
+                                int currentSignatureCount = Integer.parseInt(parts[2]);
+                                addressBalances.put(address, addressBalance);
+                                addressSignatureCounts.put(address, currentSignatureCount);
+                                addresses.add(address);
                             } catch (Exception e) {
-                                System.out.println("Error parsing line \"" + in + "\"");
+                                System.out.println("[CRITICAL ERROR] parsing line \"" + input + "\"!");
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                sc.close();
+                readAddressDatabase.close();
             } catch (Exception e) {
-                System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + ANSI_RED + "Unable to read address database file!" + ANSI_RESET);
-                getLogger().severe("Unable to read address database file!");
+                System.out.println("[CRITICAL ERROR] Unable to read addressDatabase file!");
                 e.printStackTrace();
                 System.exit(-1);
             }
         } else {
-            File f = new File(addrDb);
+            File f = new File(addressDatabase);
             try {
                 PrintWriter out = new PrintWriter(f);
                 out.println("-1");
                 out.close();
-                this.lastBlockIndex = -1; // Just in case
+                this.lastBlockNum = -1; //Just in case...? Shouldn't be required.
             } catch (Exception e) {
-                System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + ANSI_RED + "Unable to write to the ledger record file!");
+                System.out.println("[CRITICAL ERROR] UNABLE TO WRITE LEDGER RECORD FILE!");
                 e.printStackTrace();
-                getLogger().severe("Unable to write to the ledger record file!");
                 System.exit(-1);
             }
-            System.out.println("Creating \"" + addrDbName + "\" database file...");
+            System.out.println("Address Database \"" + addressDatabase + "\" does not exist! Creating...");
         }
     }
 
+    /**
+     * Hashes the entire ledger, to compare against blocks.
+     *
+     * @return HEX SHA256 hash of the ledger
+     */
     public String getLedgerHash() {
         String ledger = "";
-        for (int i = 0; i < addrs.size(); i++) {
-            ledger += addrs.get(i) + ":" + addressBalances.get(addrs.get(i)) + ":" + addressSignatureCounts.get(addrs.get(i)) + "\n";
+        for (int i = 0; i < addresses.size(); i++) {
+            ledger += addresses.get(i) + ":" + addressBalances.get(addresses.get(i)) + ":" + addressSignatureCounts.get(addresses.get(i)) + "\n";
         }
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             return DatatypeConverter.printHexBinary(md.digest(ledger.getBytes("UTF-8")));
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            System.out.println(ANSI_RED + "Unable to generate ledger hash. Exiting...");
+        } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("[CRITICAL ERROR] Unable to generate hash of ledger! Exiting...");
             System.exit(-1);
         }
-        return null;  // Maybe change this to "" to prevent a null pointer somewhere else
+        return null;
     }
 
-    public void setLastBlockIndex(int lastBlockIndex) {
-        this.lastBlockIndex = lastBlockIndex;
+    /**
+     * Sets the last block num.
+     *
+     * @param lastBlockNum The latest block applied to this tree
+     */
+    public void setLastBlockNum(int lastBlockNum) {
+        this.lastBlockNum = lastBlockNum;
     }
 
-    public boolean executeTransaction(String tx) {
+    /**
+     * This method executes a given transaction String of the format InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
+     *
+     * @param transaction String-formatted transaction to execute
+     * @return boolean Whether execution of the transaction was successful
+     */
+    public boolean executeTransaction(String transaction) {
         try {
-            String[] txParts = tx.split("::");
-            String txMessage = "";
-            for (int i = 0; i < txParts.length - 2; i++) {
-                txMessage += txParts[i] + "::";
-            }
-            txMessage = txMessage.substring(0, txMessage.length() - 1);
-            String source = txParts[0];
-            String sigData = txParts[txParts.length - 2];
-            long sigIndex = Long.parseLong(txParts[txParts.length - 1]);
-
-            if (!merkle.verifyMerkleSignature(txMessage, sigData, source, sigIndex)) {
-                return false; // sig didnt sign tx message
-            }
-
-            if (getAddressSignatureCount(source) + 1 != sigIndex) {
-                return false; // good sig, bad index
-            }
-
-            if (!merkle.isAddressFormattedCorrectly(source)) {
-                return false; //bad sending addr
-            }
-
-            double sourceAmt = Double.parseDouble(txParts[1]);
-            if (getAddressBalance(source) < sourceAmt) {
-                return false; // Bad balance (not enough funds)
-            }
-
-            ArrayList<String> destAddrs = new ArrayList<>();
-            ArrayList<Double> destAmounts = new ArrayList<>();
-
-            for (int i = 2; i < txParts.length - 2; i += 2) {
-                destAddrs.add(txParts[1]);
-                destAmounts.add(Double.parseDouble(txParts[i + 1]));
-            }
-
-            if (destAmounts.size() != destAmounts.size()) {
-                System.out.println("YOU SHOULD NOT SEE THIS. IF YOU DO< THIS IS VERY BAD");
-                return false;
-            }
-
-            for (int i = 0; i < destAddrs.size(); i++) {
-                if (!merkle.isAddressFormattedCorrectly(destAddrs.get(i))) {
-                    return false; // Not a valid address (bad format)
-                }
-            }
-            long output = 0L;
-            for (int i = 0; i < destAmounts.size(); i++) {
-                output += destAmounts.get(i);
-            }
-
-            if (sourceAmt < output) {
-                return false;
-            }
-
-            // If we get here, everything is correct
-            addressBalances.put(source, getAddressBalance(source) - sourceAmt);
-            for (int i = 0; i < destAddrs.size(); i++) {
-                addressBalances.put(destAddrs.get(i), getAddressBalance(destAddrs.get(i)) + destAmounts.get(i));
-            }
-            adjustAddressSignatureCount(source, 1);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public boolean reverseTransaction(String transaction) {
-        try {
-            String[] transactionParts = transaction.split("::");
+            String[] transactionParts = transaction.split(";");
             String transactionMessage = "";
             for (int i = 0; i < transactionParts.length - 2; i++) {
                 transactionMessage += transactionParts[i] + ";";
@@ -175,19 +128,22 @@ public class LedgerManager {
             String sourceAddress = transactionParts[0];
             String signatureData = transactionParts[transactionParts.length - 2];
             long signatureIndex = Long.parseLong(transactionParts[transactionParts.length - 1]);
-            if (!merkle.verifyMerkleSignature(transactionMessage, signatureData, sourceAddress, signatureIndex)) {
+            if (!merkleAddressUtility.verifyMerkleSignature(transactionMessage, signatureData, sourceAddress, signatureIndex)) {
                 return false; //Signature does not sign transaction message!
             }
             if (getAddressSignatureCount(sourceAddress) + 1 != signatureIndex) {
-                //We're not concerned with this when reversing!
                 return false; //The signature is valid, however it isn't using the expected signatureIndex. Blocked to ensure a compromised Lamport key from a previous transaction can't be used.
             }
-            if (!merkle.isAddressFormattedCorrectly(sourceAddress)) {
+            if (!merkleAddressUtility.isAddressFormattedCorrectly(sourceAddress)) {
                 return false; //Incorrect sending address
             }
-            long source = Long.parseLong(transactionParts[1]);
-            ArrayList<String> destinationAddresses = new ArrayList<String>();
-            ArrayList<Long> destinationAmounts = new ArrayList<Long>();
+            long sourceAmount = Long.parseLong(transactionParts[1]);
+            if (getAddressBalance(sourceAddress) < sourceAmount) //sourceAddress has an insufficient balance
+            {
+                return false; //Insufficient balance
+            }
+            ArrayList<String> destinationAddresses = new ArrayList<>();
+            ArrayList<Long> destinationAmounts = new ArrayList<>();
             for (int i = 2; i < transactionParts.length - 2; i += 2) //-2 because last two parts of transaction are the signature and signature index
             {
                 destinationAddresses.add(transactionParts[i]);
@@ -197,7 +153,7 @@ public class LedgerManager {
                 return false; //This should never happen. But if it does...
             }
             for (int i = 0; i < destinationAddresses.size(); i++) {
-                if (!merkle.isAddressFormattedCorrectly(destinationAddresses.get(i))) {
+                if (!merkleAddressUtility.isAddressFormattedCorrectly(destinationAddresses.get(i))) {
                     return false; //A destination address is not a valid address
                 }
             }
@@ -205,7 +161,70 @@ public class LedgerManager {
             for (int i = 0; i < destinationAmounts.size(); i++) {
                 outputTotal += destinationAmounts.get(i);
             }
-            if (source < outputTotal) {
+            if (sourceAmount < outputTotal) {
+                return false;
+            }
+            //Looks like everything is correct--transaction should be executed correctly
+            addressBalances.put(sourceAddress, getAddressBalance(sourceAddress) - sourceAmount);
+            for (int i = 0; i < destinationAddresses.size(); i++) {
+                addressBalances.put(destinationAddresses.get(i), getAddressBalance(destinationAddresses.get(i)) + destinationAmounts.get(i));
+            }
+            adjustAddressSignatureCount(sourceAddress, 1);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * This method reverse-executes a given transaction String of the format InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
+     * Used primarily when a blockchain fork is resolved, and transactions have to be reversed that existed in the now-forked block(s).
+     *
+     * @param transaction String-formatted transaction to execute
+     * @return boolean Whether execution of the transaction was successful
+     */
+    public boolean reverseTransaction(String transaction) {
+        try {
+            String[] transactionParts = transaction.split(";");
+            String transactionMessage = "";
+            for (int i = 0; i < transactionParts.length - 2; i++) {
+                transactionMessage += transactionParts[i] + ";";
+            }
+            transactionMessage = transactionMessage.substring(0, transactionMessage.length() - 1);
+            String sourceAddress = transactionParts[0];
+            String signatureData = transactionParts[transactionParts.length - 2];
+            long signatureIndex = Long.parseLong(transactionParts[transactionParts.length - 1]);
+            if (!merkleAddressUtility.verifyMerkleSignature(transactionMessage, signatureData, sourceAddress, signatureIndex)) {
+                return false; //Signature does not sign transaction message!
+            }
+            if (getAddressSignatureCount(sourceAddress) + 1 != signatureIndex) {
+                //We're not concerned with this when reversing!
+                //return false; //The signature is valid, however it isn't using the expected signatureIndex. Blocked to ensure a compromised Lamport key from a previous transaction can't be used.
+            }
+            if (!merkleAddressUtility.isAddressFormattedCorrectly(sourceAddress)) {
+                return false; //Incorrect sending address
+            }
+            long sourceAmount = Long.parseLong(transactionParts[1]);
+            ArrayList<String> destinationAddresses = new ArrayList<>();
+            ArrayList<Long> destinationAmounts = new ArrayList<>();
+            for (int i = 2; i < transactionParts.length - 2; i += 2) //-2 because last two parts of transaction are the signature and signature index
+            {
+                destinationAddresses.add(transactionParts[i]);
+                destinationAmounts.add(Long.parseLong(transactionParts[i + 1]));
+            }
+            if (destinationAddresses.size() != destinationAmounts.size()) {
+                return false; //This should never happen. But if it does...
+            }
+            for (int i = 0; i < destinationAddresses.size(); i++) {
+                if (!merkleAddressUtility.isAddressFormattedCorrectly(destinationAddresses.get(i))) {
+                    return false; //A destination address is not a valid address
+                }
+            }
+            long outputTotal = 0L;
+            for (int i = 0; i < destinationAmounts.size(); i++) {
+                outputTotal += destinationAmounts.get(i);
+            }
+            if (sourceAmount < outputTotal) {
                 return false;
             }
             for (int i = 0; i < destinationAmounts.size(); i++) {
@@ -215,7 +234,7 @@ public class LedgerManager {
                 }
             }
             //Looks like everything is correct--transaction should be reversed correctly
-            addressBalances.put(sourceAddress, getAddressBalance(sourceAddress) + source);
+            addressBalances.put(sourceAddress, getAddressBalance(sourceAddress) + sourceAmount);
             for (int i = 0; i < destinationAddresses.size(); i++) {
                 addressBalances.put(destinationAddresses.get(i), getAddressBalance(destinationAddresses.get(i)) - destinationAmounts.get(i));
             }
@@ -227,46 +246,70 @@ public class LedgerManager {
     }
 
     /**
-     * Writes the whole ledger to a file.
+     * Writes ledger to file.
      *
-     * @return boolean Whether the write was successful.
+     * @return boolean Whether writing the ledger to the disk was successful.
      */
     public boolean writeToFile() {
         try {
-            PrintWriter out = new PrintWriter(addrDb);
-            for (int i = 0; i < addrs.size(); i++) {
-                out.println(addrs.get(i) + ":" + addressBalances.get(addrs.get(i)) + ":" + addressSignatureCounts.get(addrs.get(i)));
+            PrintWriter out = new PrintWriter(addressDatabase);
+            for (int i = 0; i < addresses.size(); i++) {
+                out.println(addresses.get(i) + ":" + addressBalances.get(addresses.get(i)) + ":" + addressSignatureCounts.get(addresses.get(i)));
             }
             out.close();
         } catch (Exception e) {
-            System.out.println(new Timestamp(System.currentTimeMillis()) + " [DAEMON] - " + ANSI_RED + "Unable to write to db file!" + ANSI_RESET);
+            System.out.println("[CRITICAL ERROR] UNABLE TO WRITE DB FILE!");
             e.printStackTrace();
-            getLogger().severe("Unable to write to db file!");
             return false;
         }
         return true;
     }
 
-    public int getAddressSignatureCount(String addr) {
-        return addressSignatureCounts.getOrDefault(addr, -1);
-    }
-
-    public boolean adjustAddressSignatureCount(String addr, int adjustment) {
-        int old = getAddressSignatureCount(addr);
-        if (old + adjustment < 0) {
-            return false; // negative balance
+    /**
+     * Returns the last-used signature index of an address.
+     *
+     * @param address Address to retrieve the latest index for
+     * @return int Last signature index used by address
+     */
+    public int getAddressSignatureCount(String address) {
+        if (addressSignatureCounts.containsKey(address)) {
+            return addressSignatureCounts.get(address);
+        } else {
+            return -1;
         }
-        return updateAddressSignatureCount(addr, old + adjustment);
     }
 
-    public boolean updateAddressSignatureCount(String addr, int newCount) {
+    /**
+     * Adjusts an address's signature count.
+     *
+     * @param address    Address to adjust
+     * @param adjustment Amount to adjust address's signature count by. This can be negative.
+     * @return boolean Whether the adjustment was successful
+     */
+    public boolean adjustAddressSignatureCount(String address, int adjustment) {
+        int oldCount = getAddressSignatureCount(address);
+        if (oldCount + adjustment < 0) //Adjustment is negative with an absolute value larger than oldBalance
+        {
+            return false;
+        }
+        return updateAddressSignatureCount(address, oldCount + adjustment);
+    }
+
+    /**
+     * Updates an address's signature count.
+     *
+     * @param address  Address to update
+     * @param newCount New signature index to use
+     * @return boolean Whether the adjustment was successful
+     */
+    public boolean updateAddressSignatureCount(String address, int newCount) {
         try {
-            if (addressSignatureCounts.containsKey(addr)) {
-                addressSignatureCounts.put(addr, newCount);
+            if (addressSignatureCounts.containsKey(address)) {
+                addressSignatureCounts.put(address, newCount);
             } else {
-                addressBalances.put(addr, 0D);
-                addressSignatureCounts.put(addr, newCount);
-                addrs.add(addr);
+                addressBalances.put(address, 0L);
+                addressSignatureCounts.put(address, newCount);
+                addresses.add(address);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,26 +318,51 @@ public class LedgerManager {
         return true;
     }
 
-    public double getAddressBalance(String addr) {
-        return addressBalances.getOrDefault(addr, 0d);
+    /**
+     * Returns the address balance for a given address.
+     *
+     * @param address Address to check balance of
+     * @return long Balance of address
+     */
+    public long getAddressBalance(String address) {
+        if (addressBalances.containsKey(address)) {
+            return addressBalances.get(address);
+        } else {
+            return 0L;
+        }
     }
 
-    public boolean adjustAddressBalance(String addr, double adjustment) {
-        double old = getAddressBalance(addr);
-        if (old + adjustment < 0) {
+    /**
+     * Adjusts the balance of an address by a given adjustment, which can be positive or negative.
+     *
+     * @param address    Address to adjust the balance of
+     * @param adjustment Amount to adjust account balance by
+     * @return boolean Whether the adjustment was successful
+     */
+    public boolean adjustAddressBalance(String address, long adjustment) {
+        long oldBalance = getAddressBalance(address);
+        if (oldBalance + adjustment < 0) //Adjustment is negative with an absolute value larger than oldBalance
+        {
             return false;
         }
-        return updateAddressBalance(addr, old + adjustment);
+        return updateAddressBalance(address, oldBalance + adjustment);
     }
 
-    public boolean updateAddressBalance(String addr, double newAmount) {
+    /**
+     * Updates the balance of an address to a new amount
+     *
+     * @param address   Address to set the balance of
+     * @param newAmount New amount to set as the balance of address
+     * @return boolean Whether setting the new balance was successful
+     */
+    public boolean updateAddressBalance(String address, long newAmount) {
         try {
-            if (addressBalances.containsKey(addr)) {
-                addressBalances.put(addr, newAmount);
+            if (addressBalances.containsKey(address)) {
+                addressBalances.put(address, newAmount);
             } else {
-                addressBalances.put(addr, newAmount);
-                addressSignatureCounts.put(addr, 0);
-                addrs.add(addr);
+                addressBalances.put(address, newAmount);
+                addressSignatureCounts.put(address, 0);
+                addresses.add(address);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -302,6 +370,4 @@ public class LedgerManager {
         }
         return true;
     }
-
-
 }

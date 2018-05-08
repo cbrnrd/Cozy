@@ -7,80 +7,120 @@ import io.codepace.cozy.Util;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import javax.xml.bind.DatatypeConverter;
-
 /**
- * This class provides all functionality related to block usage and block verification.
- * <p>
- * PROTOCOL RULE:
- * <p>
+ * This class provides all functionality related to block verification and usage.
  * A block contains:
- * - A Timestamp (Unix epoch)
- * - Block number (index)
- * - The hash of the previous block
- * - The Certificate
- * - Difficulty
- * - Winning nonce
- * - List of transactions
+ * -Timestamp (Unix Epoch)
+ * -Block number
+ * -Previous block hash
+ * -Certificate
+ * -Difficulty
+ * -Winning nonce
+ * -Transaction list
  */
-public class Block {
-
+public class Block
+{
     public long timestamp;
-    public int blockIndex;
-    public String prevBlockHash;
+    public int blockNum;
+    public String previousBlockHash;
     public String blockHash;
-    public Certificate cert;
+    public Certificate certificate;
     public long difficulty;
     public int winningNonce;
     public String ledgerHash;
-    public ArrayList<String> txs;
-    public String minerSig;
-    public long minerSigIndex;
+    public ArrayList<String> transactions;
+    public String minerSignature;
+    public long minerSignatureIndex;
 
     /**
-     * TODO: docs
+     * Constructor for Block object. A block object is made for any confirmed or potential network block, and requires all pieces of data in this constructor
+     * to be a valid network block. The timestamp is the result of the miner's initial call to System.currentTimeMillis(). When peers are receiving new blocks
+     * (synced with the network, not catching up) they will refuse any blocks that are more than 2 hours off their internal adjusted time. This makes difficulty
+     * malleability impossible in the long-run, ensures that timestamps are reasonably accurate, etc. As a result, any clients far off from the true network time
+     * will be forked off the network as they won't accept valid network blocks. Make sure your computer's time is set correctly!
+     *
+     * All blocks stack in one particular order, and each block contains the hash of the previous block, to clear any ambiguities about which chain a block belongs
+     * to during a fork. The winning nonce is concatenated with the certificate and hashed to get a certificate mining score, which is then used to determine
+     * whether a block is under the target difficulty.
+     *
+     * Blocks are hashed to create a block hash, which ensures blocks are not altered, and is used in block stacking. The data hashed is formatted as a String:
+     * {timestamp:blockNum:previousBlockHash:difficulty:winningNonce},{ledgerHash},{transactions},{redeemAddress:arbitraryData:maxNonce:authorityName:blockNum:prevBlockHash},{certificateSignatureData},{certificateSigantureIndex}
+     * The last three chunks of the above are returned by calling getFullCertificate() on a certificate object.
+     * Then, the full block (including the hash) is signed by the miner. So:
+     * {timestamp:blockNum:previousBlockHash:difficulty:winningNonce},{ledgerHash},{transactions},{redeemAddress:arbitraryData:maxNonce:authorityName:blockNum:prevBlockHash},{certificateSignatureData},{certificateSigantureIndex},{blockHash}
+     * will be hashed and signed by the redeemAddress, which should be held by the miner. The final block format:
+     * {timestamp:blockNum:previousBlockHash:difficulty:winningNonce},{ledgerHash},{transactions},{redeemAddress:arbitraryData:maxNonce:authorityName:blockNum:prevBlockHash},{certificateSignatureData},{certificateSigantureIndex},{blockHash},{minerSignature},{minerSignatureIndex}
+     *
+     * A higher difficulty means a block is harder to mine. However, a higher difficulty means the TARGET is smaller. Targets can be calculated from the difficulty. A target is simply Long.MAX_VALUE-difficulty.
+     *
+     * Explicit transactions are represented as Strings in an ArrayList<String>. Each explicit transaction follows the following format:
+     * InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
+     * At a bare minimum, ALL transactions must have an InputAddress, InputAmount, and one OutputAddress and one OutputAmount
+     * Anything left over after all OutputAmounts have been subtracted from the InputAmount is the transaction fee which goes to a block miner.
+     * The payment of transaction fees and block rewards are IMPLICIT transactions. They never actually appear on the network. Clients, when processing blocks, automatically adjust the ledger as required.
+     *
+     * @param timestamp Timestamp originally set into the block by the miner
+     * @param blockNum The block number
+     * @param previousBlockHash The hash of the previous block
+     * @param difficulty The difficulty at the time this block was mined
+     * @param winningNonce The nonce selected by a miner to create the block
+     * @param ledgerHash The hash of the ledger as it existed before this block's transactions occurred
+     * @param transactions ArrayList<String> of all the transactions included in the block
+     * @param minerSignature Miner's signature of the block
+     * @param minerSignatureIndex Miner's signature index used when generating minerSignature
      */
-    public Block(long timestamp, int blockIndex, String prevBlockHash, Certificate cert, long difficulty, int winningNonce, String ledgerHash, ArrayList<String> txs, String minerSig, int minerSigIndex) {
+    public Block(long timestamp, int blockNum, String previousBlockHash, Certificate certificate, long difficulty, int winningNonce, String ledgerHash, ArrayList<String> transactions, String minerSignature, int minerSignatureIndex)
+    {
         this.timestamp = timestamp;
-        this.blockIndex = blockIndex;
-        this.prevBlockHash = prevBlockHash;
-        this.cert = cert;
+        this.blockNum = blockNum;
+        this.previousBlockHash = previousBlockHash;
+        this.certificate = certificate;
         this.difficulty = difficulty;
         this.winningNonce = winningNonce;
-        this.txs = txs;
         this.ledgerHash = ledgerHash;
-        this.minerSig = minerSig;
-        this.minerSigIndex = minerSigIndex;
-
-        try {
-            String txString = "";
-
-            for (int i = 0; i < txs.size(); i++) {
-
-                if (txs.get(i).length() > 10) {
-                    txString += txs.get(i) + "*";
+        this.transactions = transactions;
+        this.minerSignature = minerSignature;
+        this.minerSignatureIndex = minerSignatureIndex;
+        try
+        {
+            String transactionsString = "";
+            //Transaction format: FromAddress;InputAmount;ToAddress1;Output1;ToAddress2;Output2... etc.
+            for (int i = 0; i < transactions.size(); i++)
+            {
+                if (transactions.get(i).length() > 10)
+                {
+                    transactionsString += transactions.get(i) + "*";
                 }
-
             }
-
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            txString = txString.substring(0, txString.length() - 1);
-            String blockData = "{" + timestamp + ":" + blockIndex + ":" + prevBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + txString + "}," + cert.getFullCertificate();
+            transactionsString = transactionsString.substring(0, transactionsString.length() - 1);
+            String blockData = "{" + timestamp + ":" + blockNum + ":" + previousBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + certificate.getFullCertificate();
             this.blockHash = DatatypeConverter.printHexBinary(md.digest(blockData.getBytes("UTF-8")));
-        } catch (Exception e) {
+
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
     /**
-     * Determines whether or not a block is PoW or not. Blocks that aren't PoW have an all zero certificate
+     * Determines whether the block is PoW or not. Blocks that are not PoW (as in, PoS) have a certificate
+     * filled with zeros.
      *
-     * @return Whether the block is a PoW or not
+     * @return Whether the block is a PoW block or not
      */
-    public boolean isPoWBlock() {
-        return cert.isPoWCertificate();
+    public boolean isPoWBlock()
+    {
+        return certificate.isPoWCertificate();
     }
 
-    public Block(String rawBlock) {
+    /**
+     * See above for a lot of information. This constructor accepts the raw block format instead of all the arguments separately!
+     *
+     * @param rawBlock String representing the raw data of a block
+     */
+    public Block(String rawBlock)
+    {
         /*
          * Using a workaround for the unknown number of transactions, which would each be split into multiple parts as they
          * contain a comma as part of the signature. As such, all part up to and including the list of transactions are parsed
@@ -94,11 +134,13 @@ public class Block {
         parts[2] = rawBlock.substring(0, rawBlock.indexOf("}") + 1);
         rawBlock = rawBlock.substring(rawBlock.indexOf("}") + 2); //Account for comma a third time
         String[] partsInitial = rawBlock.split(",");
-        for (int i = 3; i < 11; i++) {
+        for (int i = 3; i < 11; i++)
+        {
             parts[i] = partsInitial[i - 3];
         }
         System.out.println("Block parts: " + parts.length);
-        for (int i = 0; i < parts.length; i++) {
+        for (int i = 0; i < parts.length; i++)
+        {
             String toPrint = parts[i];
             if (parts[i].length() > 40)
                 toPrint = parts[i].substring(0, 20) + "..." + parts[i].substring(parts[i].length() - 20);
@@ -106,34 +148,38 @@ public class Block {
         }
         String firstPart = parts[0].replace("{", "");
         firstPart = firstPart.replace("}", "");
-        String[] firstPartParts = firstPart.split(":");
-        try {
+        String[] firstPartParts = firstPart.split(":"); //Great name, huh?
+        try
+        {
             this.timestamp = Long.parseLong(firstPartParts[0]);
-            this.blockIndex = Integer.parseInt(firstPartParts[1]);
-            this.prevBlockHash = firstPartParts[2];
+            this.blockNum = Integer.parseInt(firstPartParts[1]);
+            this.previousBlockHash = firstPartParts[2];
             this.difficulty = Long.parseLong(firstPartParts[3]);
             this.winningNonce = Integer.parseInt(firstPartParts[4]);
             this.ledgerHash = parts[1].replace("{", "").replace("}", "");
             String transactionsString = parts[2].replace("{", "").replace("}", "");
-            this.txs = new ArrayList<String>();
+            this.transactions = new ArrayList<>();
             String[] rawTransactions = transactionsString.split("\\*"); //Transactions are separated by an asterisk, as the colon, double-colon, and comma are all used in other places, and would be a pain to use here.
-            for (int i = 0; i < rawTransactions.length; i++) {
-                this.txs.add(rawTransactions[i]);
+            for (int i = 0; i < rawTransactions.length; i++)
+            {
+                this.transactions.add(rawTransactions[i]);
             }
-            this.cert = new Certificate(parts[3] + "," + parts[4] + "," + parts[5] + "," + parts[6]);
+            this.certificate = new Certificate(parts[3] + "," + parts[4] + "," + parts[5] + "," + parts[6]);
             //parts[7] is a block hash
-            this.minerSig = parts[8].replace("{", "") + "," + parts[9].replace("}", "");
-            this.minerSigIndex = Integer.parseInt(parts[10].replace("{", "").replace("}", ""));
+            this.minerSignature = parts[8].replace("{", "") + "," + parts[9].replace("}", "");
+            this.minerSignatureIndex = Integer.parseInt(parts[10].replace("{", "").replace("}", ""));
             /*
              * Ugly, will fix later.
              */
-            try {
+            try
+            {
                 transactionsString = "";
                 //Transaction format: FromAddress;InputAmount;ToAddress1;Output1;ToAddress2;Output2... etc.
-                for (int i = 0; i < txs.size(); i++) {
-                    if (txs.get(i).length() > 10) //Arbitrary number, make sure a transaction has some size to it
+                for (int i = 0; i < transactions.size(); i++)
+                {
+                    if (transactions.get(i).length() > 10) //Arbitrary number, make sure a transaction has some size to it
                     {
-                        transactionsString += txs.get(i) + "*";
+                        transactionsString += transactions.get(i) + "*";
                     }
                 }
                 MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -141,64 +187,87 @@ public class Block {
                 {
                     transactionsString = transactionsString.substring(0, transactionsString.length() - 1);
                 }
-                String blockData = "{" + timestamp + ":" + blockIndex + ":" + prevBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + cert.getFullCertificate();
+                String blockData = "{" + timestamp + ":" + blockNum + ":" + previousBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + certificate.getFullCertificate();
                 this.blockHash = DatatypeConverter.printHexBinary(md.digest(blockData.getBytes("UTF-8")));
 
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 e.printStackTrace();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
     /**
-     * Gets the address of whatever node mined the last block
+     * Gets the address which mined this block.
      * @return String Address of block miner
      */
-    public String getMiner(){
-        return cert.redeemAddress;
+    public String getMiner()
+    {
+        return certificate.redeemAddress;
     }
 
-    public boolean validateBlock(Blockchain chain){
-        Util.getLogger().info("Validating block " + blockIndex + "...");
-        Util.getLogger().info("Difficulty:" + difficulty);
-
-        if (difficulty == 100000){
-
-            // No validation needed, cert is filled with zeros
-            if (winningNonce > cert.maxNonce){
-                return false;
+    /**
+     * Used to check a variety of conditions to ensure that a block is valid.
+     * Valid block requirements:
+     * -Certificate is valid
+     * -Certificate when mined with winningNonce falls below the target
+     * -'Compiled' block format is signed correctly by miner
+     * -Miner signature is valid
+     * -Transactions are formatted correctly
+     *
+     * @return boolean Whether the self-contained block is valid. Does not represent inclusion in the network, or existence of the previous block.
+     */
+    public boolean validateBlock(Blockchain blockchain)
+    {
+        System.out.println("Validating block " + blockNum);
+        System.out.println("Difficulty: " + difficulty);
+        if (difficulty == 100000)
+        {
+            // No certificate validation required, certificate is simply filled with zeros.
+            if (winningNonce > certificate.maxNonce)
+            {
+                return false; // PoS difficulty exceeded
             }
-            // No PoS before block 500
-            if (blockIndex < 500){
+            if (blockNum < 500)
+            {
+                // No PoS blocks allowed before block 500
                 return false;
             }
 
             // Address can not have mined a PoS block or sent a transaction in the last 50 blocks
-            for (int i = blockIndex - 1; i > blockIndex - 50; i--) {
-                if (!chain.getBlock(i).isPoWBlock()){
-                    if(chain.getBlock(i).getMiner().equals(cert.redeemAddress)){
-                        return false; // Addr has mined a PoS block too recently
+            for (int i = blockNum - 1; i > blockNum - 50; i--)
+            {
+                if (!blockchain.getBlock(i).isPoWBlock()) // Then PoS block
+                {
+                    if (blockchain.getBlock(i).getMiner().equals(certificate.redeemAddress))
+                    {
+                        return false; // Address has mined PoS block too recently!
                     }
                 }
-
-                ArrayList<String> tsx = chain.getBlock(i).getTransactionsInvolvingAddress(cert.redeemAddress);
-                for (String tx: txs) {
-                    if (tx.split(":")[0].equals(cert.redeemAddress)){
-                        return false;
+                ArrayList<String> transactions = blockchain.getBlock(i).getTransactionsInvolvingAddress(certificate.redeemAddress);
+                for (String transaction : transactions)
+                {
+                    if (transaction.split(":")[0].equals(certificate.redeemAddress))
+                    {
+                        return false; // Address has sent coins too recently!
                     }
                 }
             }
+
+
+
             try
             {
                 String transactionsString = "";
                 //Transaction format: FromAddress;InputAmount;ToAddress1;Output1;ToAddress2;Output2... etc.
-                for (int i = 0; i < txs.size(); i++)
+                for (int i = 0; i < transactions.size(); i++)
                 {
-                    if (txs.get(i).length() > 10) //Arbitrary number, makes sure empty transaction sets still function
+                    if (transactions.get(i).length() > 10) //Arbitrary number, makes sure empty transaction sets still function
                     {
-                        transactionsString += txs.get(i) + "*";
+                        transactionsString += transactions.get(i) + "*";
                     }
                 }
                 //Recalculate block hash
@@ -207,37 +276,37 @@ public class Block {
                 {
                     transactionsString = transactionsString.substring(0, transactionsString.length() - 1);
                 }
-                String blockData = "{" + timestamp + ":" + blockIndex + ":" + prevBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + cert.getFullCertificate();
+                String blockData = "{" + timestamp + ":" + blockNum + ":" + previousBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + certificate.getFullCertificate();
                 String blockHash = DatatypeConverter.printHexBinary(md.digest(blockData.getBytes("UTF-8")));
                 String fullBlock = blockData + ",{" + blockHash + "}"; //This is the message signed by the block miner
                 MerkleAddressUtility MerkleAddressUtility = new MerkleAddressUtility();
-                if (!MerkleAddressUtility.verifyMerkleSignature(fullBlock, minerSig, cert.redeemAddress, minerSigIndex))
+                if (!MerkleAddressUtility.verifyMerkleSignature(fullBlock, minerSignature, certificate.redeemAddress, minerSignatureIndex))
                 {
-                    System.out.println("Block didn't verify for " + cert.redeemAddress + " with index " + minerSigIndex);
+                    System.out.println("Block didn't verify for " + certificate.redeemAddress + " with index " + minerSignatureIndex);
                     System.out.println("Signature mismatch error");
                     System.out.println("fullBlock: " + fullBlock);
-                    System.out.println("minerSignature: " + minerSig);
+                    System.out.println("minerSignature: " + minerSignature);
                     return false; //Block mining signature is not valid
                 }
-                if (txs.size() == 1 && txs.get(0).equals(""))
+                if (transactions.size() == 1 && transactions.get(0).equals(""))
                 {
                     //Block has no explicit transactions
                     return true;
                 }
-                else if (txs.size() == 0)
+                else if (transactions.size() == 0)
                 {
                     //Block has no explicit transactions
                     return true;
                 }
-                for (int i = 0; i < txs.size(); i++)
+                for (int i = 0; i < transactions.size(); i++)
                 {
-	                /*
-	                 * Transaction format:
-	                 * InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
-	                 */
+                    /*
+                     * Transaction format:
+                     * InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
+                     */
                     try
                     {
-                        String tempTransaction = txs.get(i);
+                        String tempTransaction = transactions.get(i);
                         String[] transactionParts = tempTransaction.split(";");
                         if (transactionParts.length % 2 != 0 || transactionParts.length < 6)
                         {
@@ -292,22 +361,22 @@ public class Block {
         {
             try
             {
-                if (!cert.validCertificate())
+                if (!certificate.validateCertificate())
                 {
                     System.out.println("Certificate validation error");
                     return false; //Certificate is not valid.
                 }
-                if (winningNonce > cert.maxNonce)
+                if (winningNonce > certificate.maxNonce)
                 {
                     System.out.println("Winning nonce error");
                     return false; //winningNonce is outside of the nonce range!
                 }
-                if (blockIndex != cert.blockIndex)
+                if (blockNum != certificate.blockNum)
                 {
                     System.out.println("Block height does not match certificate height!");
                     return false; //Certificate and block height are not equal
                 }
-                long certificateScore = cert.getScoreAtNonce(winningNonce); //Lower score is better
+                long certificateScore = certificate.getScoreAtNonce(winningNonce); //Lower score is better
                 long target = Long.MAX_VALUE/(difficulty/2);
                 if (certificateScore < target)
                 {
@@ -316,11 +385,11 @@ public class Block {
                 }
                 String transactionsString = "";
                 //Transaction format: FromAddress;InputAmount;ToAddress1;Output1;ToAddress2;Output2... etc.
-                for (int i = 0; i < txs.size(); i++)
+                for (int i = 0; i < transactions.size(); i++)
                 {
-                    if (txs.get(i).length() > 10) //Arbitrary number, makes sure empty transaction sets still function
+                    if (transactions.get(i).length() > 10) //Arbitrary number, makes sure empty transaction sets still function
                     {
-                        transactionsString += txs.get(i) + "*";
+                        transactionsString += transactions.get(i) + "*";
                     }
                 }
                 //Recalculate block hash
@@ -329,29 +398,29 @@ public class Block {
                 {
                     transactionsString = transactionsString.substring(0, transactionsString.length() - 1);
                 }
-                String blockData = "{" + timestamp + ":" + blockIndex + ":" + prevBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + cert.getFullCertificate();
+                String blockData = "{" + timestamp + ":" + blockNum + ":" + previousBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{" + transactionsString + "}," + certificate.getFullCertificate();
                 String blockHash = DatatypeConverter.printHexBinary(md.digest(blockData.getBytes("UTF-8")));
                 String fullBlock = blockData + ",{" + blockHash + "}"; //This is the message signed by the block miner
                 MerkleAddressUtility MerkleAddressUtility = new MerkleAddressUtility();
-                if (!MerkleAddressUtility.verifyMerkleSignature(fullBlock, minerSig, cert.redeemAddress, minerSigIndex))
+                if (!MerkleAddressUtility.verifyMerkleSignature(fullBlock, minerSignature, certificate.redeemAddress, minerSignatureIndex))
                 {
-                    System.out.println("Block didn't verify for " + cert.redeemAddress + " with index " + minerSigIndex);
+                    System.out.println("Block didn't verify for " + certificate.redeemAddress + " with index " + minerSignatureIndex);
                     System.out.println("Signature mismatch error");
                     System.out.println("fullBlock: " + fullBlock);
-                    System.out.println("minerSignature: " + minerSig);
+                    System.out.println("minerSignature: " + minerSignature);
                     return false; //Block mining signature is not valid
                 }
-                if (txs.size() == 1 && txs.get(0).equals(""))
+                if (transactions.size() == 1 && transactions.get(0).equals(""))
                 {
                     //Block has no explicit transactions
                     return true;
                 }
-                else if (txs.size() == 0)
+                else if (transactions.size() == 0)
                 {
                     //Block has no explicit transactions
                     return true;
                 }
-                for (int i = 0; i < txs.size(); i++)
+                for (int i = 0; i < transactions.size(); i++)
                 {
                     /*
                      * Transaction format:
@@ -359,7 +428,7 @@ public class Block {
                      */
                     try
                     {
-                        String tempTransaction = txs.get(i);
+                        String tempTransaction = transactions.get(i);
                         String[] transactionParts = tempTransaction.split(";");
                         if (transactionParts.length % 2 != 0 || transactionParts.length < 6)
                         {
@@ -419,49 +488,72 @@ public class Block {
         }
     }
 
-    public ArrayList<String> getTransactionsInvolvingAddress(String addr){
-        ArrayList<String> relevantParts = new ArrayList<>();
-        for (int i = 0; i < txs.size(); i++) {
-            String temp = txs.get(i);
-            String[] txParts = temp.split("::");
-            String sender = txParts[0];
-
-            if (addr.equals(cert.redeemAddress)){
-                relevantParts.add("COINBASE:100:" + cert.redeemAddress);
+    /**
+     * Scans the block for any transactions that involve the provided address.
+     * Returns ArrayList<String> containing "simplified" transactions, in the format of sender:amount:receiver
+     * Each of these "simplified" transaction formats don't necessarily express an entire transaction, but rather only portions
+     * of a transaction which involve either the target address sending or receiving coins.
+     *
+     * @param addressToFind Address to search through block transaction pool for
+     *
+     * @return ArrayList<String> Simplified-transaction-format list of all related transactions.
+     */
+    public ArrayList<String> getTransactionsInvolvingAddress(String addressToFind)
+    {
+        ArrayList<String> relevantTransactionParts = new ArrayList<>();
+        for (int i = 0; i < transactions.size(); i++)
+        {
+            String tempTransaction = transactions.get(i);
+            //InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
+            String[] transactionParts = tempTransaction.split(";");
+            String sender = transactionParts[0];
+            if (addressToFind.equals(certificate.redeemAddress))
+            {
+                relevantTransactionParts.add("COINBASE" + ":" + "100" + ":" + certificate.redeemAddress);
             }
-            if(sender.equalsIgnoreCase(addr)){
-                for (int j = 2; j < txParts.length - 2; j+=2) {
-                    relevantParts.add(sender + ":" + txParts[j+1]);
+            if (sender.equalsIgnoreCase(addressToFind))
+            {
+                for (int j = 2; j < transactionParts.length - 2; j+=2)
+                {
+                    relevantTransactionParts.add(sender + ":" + transactionParts[j+1] + ":" + transactionParts[j]);
                 }
-            } else {
-                for(int j = 2; j < txParts.length - 2; j+=2){
-                    if(txParts[j].equalsIgnoreCase(addr)){
-                        relevantParts.add(sender + ":" + txParts[j+1] + ":" + txParts[j]);
+            }
+            else
+            {
+                for (int j = 2; j < transactionParts.length - 2; j+=2)
+                {
+                    if (transactionParts[j].equalsIgnoreCase(addressToFind))
+                    {
+                        relevantTransactionParts.add(sender + ":" + transactionParts[j+1] + ":" + transactionParts[j]);
                     }
                 }
             }
         }
-        return relevantParts;
+        return relevantTransactionParts;
     }
 
     /**
-     * Returns the raw (String) representation of the block and its data.
+     * Returns the raw String representation of the block, useful when saving the block or sending it to a peer.
+     *
      * @return String The raw block
      */
-    public String getRawBlock(){
-
-        String raw = "{" + timestamp + ":" + blockIndex + ":" + prevBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{";
-        String txString = "";
-        for (int i = 0; i < txs.size(); i++) {
-            if(txs.get(i).length() > 10){
-                txString += txs.get(i) + "*";
+    public String getRawBlock()
+    {
+        String rawBlock = "";
+        rawBlock = "{" + timestamp + ":" + blockNum + ":" + previousBlockHash + ":" + difficulty + ":" + winningNonce + "},{" + ledgerHash + "},{";
+        String transactionString = "";
+        for (int i = 0; i < transactions.size(); i++)
+        {
+            if (transactions.get(i).length() > 10)
+            {
+                transactionString += transactions.get(i) + "*";
             }
         }
-        if(txString.length() > 2) {  // Prevent empty tx strings from throwing an IndexOutOfBounds exception
-             txString = txString.substring(0, txString.length() - 1);
+        if (transactionString.length() > 2) //Protect against empty transaction strings tripping an index out of bounds error with a negative substring ending index
+        {
+            transactionString = transactionString.substring(0, transactionString.length() - 1);
         }
-        raw += txString + "}," + cert.getFullCertificate() + ",{" + blockHash + "},{" + minerSig + "},{" + minerSigIndex + "}";
-        return raw;
+        rawBlock += transactionString + "}," + certificate.getFullCertificate() + ",{" + blockHash + "},{" + minerSignature + "},{" + minerSignatureIndex + "}";
+        return rawBlock;
     }
-
 }

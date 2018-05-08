@@ -3,52 +3,76 @@ package io.codepace.cozy;
 import java.util.ArrayList;
 
 import static io.codepace.cozy.Util.*;
-
-public class TransactionUtility {
-
-    public static boolean isTransactionValid(String tx){
-        getLogger().info("Checking validity of transaction: " + tx);
-        MerkleAddressUtility merkle = new MerkleAddressUtility();
-        try{
-            String[] txParts = tx.split("::");
-            if (txParts.length % 2 == 0 || txParts.length < 6){
-                //XXX
-                return false;
+/**
+ * TransactionUtility simplifies a few basic tasks dealing with transaction parsing and verification.
+ */
+public class TransactionUtility
+{
+    /**
+     * Tests whether a transaction is valid. Doesn't test account balances, but tests formatting and signature verification.
+     *
+     * @param transaction Transaction String to test
+     *
+     * @return boolean Whether the transaction is formatted and signed correctly
+     */
+    public static boolean isTransactionValid(String transaction)
+    {
+        System.out.println("Checking transaction: " + transaction);
+        MerkleAddressUtility merkleAddressUtility = new MerkleAddressUtility();
+        try
+        {
+            String[] transactionParts = transaction.split(";");
+            if (transactionParts.length % 2 != 0 || transactionParts.length < 6)
+            {
+                return false; //Each address should line up with an output, and no explicit transaction is possible with fewer than six parts (see above)
             }
-            for (int i = 0; i < txParts.length - 2; i+=2) {
-                if(!merkle.isAddressFormattedCorrectly(txParts[i])){
-                    return false; // Invalid address
+            for (int j = 0; j < transactionParts.length - 2; j+=2) //Last two parts are signatureData and signatureIndex,respectively
+            {
+                if (!merkleAddressUtility.isAddressFormattedCorrectly(transactionParts[j]))
+                {
+                    return false; //Address in transaction is misformatted
                 }
-
             }
-
-            double inAmount = Double.parseDouble(txParts[1]);
-            double outAmount = 0D;
-            for (int i = 3; i < txParts.length - 2; i+=2) {
-                if (Double.parseDouble(txParts[i]) <= 0){
+            long inputAmount = Long.parseLong(transactionParts[1]);
+            long outputAmount = 0L;
+            for (int j = 3; j < transactionParts.length - 2; j+=2) //Element 3 (4th element) and each subsequent odd-numbered index up to transactionParts should be an output amount.
+            {
+                if (Long.parseLong(transactionParts[j]) <= 0)
+                {
                     return false;
                 }
-                outAmount += Double.parseDouble(txParts[i]);
+                outputAmount += Long.parseLong(transactionParts[j]);
             }
-
-            if (inAmount - outAmount < 0){
-                return false; // No sudden creation of coins
+            if (inputAmount - outputAmount < 0)
+            {
+                return false; //Coins can't be created out of thin air!
             }
-
-            String txData = "";
-            for (int i = 0; i < txParts.length - 2; i++) {
-                txData += txParts[i] + "::";
+            String transactionData = "";
+            for (int j = 0; j < transactionParts.length - 2; j++)
+            {
+                transactionData += transactionParts[j] + ";";
             }
-            txData = txData.substring(0, txData.length() - 1);
-            if(!merkle.verifyMerkleSignature(txData, txParts[txParts.length - 2], txParts[0], Long.parseLong(txParts[txParts.length - 1]))){
-                return false; // Signature doesn't match
+            transactionData = transactionData.substring(0, transactionData.length() - 1);
+            if (!merkleAddressUtility.verifyMerkleSignature(transactionData, transactionParts[transactionParts.length - 2], transactionParts[0], Long.parseLong(transactionParts[transactionParts.length - 1])))
+            {
+                return false; //Siganture doesn't match
             }
-        } catch (Exception e){
+        } catch (Exception e) //Likely an error parsing a Long or performing some String manipulation task. Maybe array bounds exceptions.
+        {
             return false;
         }
         return true;
     }
 
+    /**
+     * Transactions on the Cozycoin 2.0 network from the same address must occur in a certain order, dictated by the signature index.
+     * As such, We want to order all transactions from the same address in order.
+     * The order of transactions from different addresses does not matter--coins will not be received and spent in the same transaction.
+     *
+     * @param transactionsToSort ArrayList<String> containing String representations of all the addresses to sort
+     *
+     * @return ArrayList<String> All of the transactions sorted in order for block inclusion, with any self-invalidating transactions removed.
+     */
     public static ArrayList<String> sortTransactionsBySignatureIndex(ArrayList<String> transactionsToSort)
     {
         for (int i = 0; i < transactionsToSort.size(); i++)
@@ -59,7 +83,7 @@ public class TransactionUtility {
                 i--; //Compensate for changing ArrayList size
             }
         }
-        ArrayList<String> sortedTransactions = new ArrayList<String>();
+        ArrayList<String> sortedTransactions = new ArrayList<>();
         for (int i = 0; i < transactionsToSort.size(); i++)
         {
             System.out.println("spin1");
@@ -69,17 +93,17 @@ public class TransactionUtility {
             }
             else
             {
-                String address = transactionsToSort.get(i).split("::")[0];
-                long index = Long.parseLong(transactionsToSort.get(i).split("::")[transactionsToSort.get(i).split("::").length  - 1]);
+                String address = transactionsToSort.get(i).split(";")[0];
+                long index = Long.parseLong(transactionsToSort.get(i).split(";")[transactionsToSort.get(i).split(";").length  - 1]);
                 boolean added = false;
                 for (int j = 0; j < sortedTransactions.size(); j++)
                 {
                     System.out.println("spin2");
-                    if (sortedTransactions.get(j).split("::")[0].equals(address))
+                    if (sortedTransactions.get(j).split(";")[0].equals(address))
                     {
-                        String[] parts = sortedTransactions.get(j).split("::");
+                        String[] parts = sortedTransactions.get(j).split(";");
                         int indexToGrab = parts.length - 1;
-                        String sigIndexToParse = sortedTransactions.get(j).split("::")[indexToGrab];
+                        String sigIndexToParse = sortedTransactions.get(j).split(";")[indexToGrab];
                         long existingSigIndex = Long.parseLong(sigIndexToParse);
                         if (index < existingSigIndex)
                         {
@@ -114,7 +138,7 @@ public class TransactionUtility {
      * @param outputAmounts Amounts lined up with addresses to send
      * @param index The signature index to use
      *
-     * @return String The full transaction, formatted for use in the Curecoin 2.0 network, including the signature and signature index. Returns null if transaction is incorrect for any reason.
+     * @return String The full transaction, formatted for use in the Cozycoin 2.0 network, including the signature and signature index. Returns null if transaction is incorrect for any reason.
      */
     public static String signTransaction(String privateKey, String inputAddress, long inputAmount, ArrayList<String> outputAddresses, ArrayList<Long> outputAmounts, long index)
     {
@@ -138,5 +162,4 @@ public class TransactionUtility {
         }
         return null;
     }
-
 }

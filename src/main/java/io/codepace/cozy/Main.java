@@ -33,7 +33,7 @@ public class Main {
         System.out.print("Starting RPC daemon...  ");
         RPC rpcAgent = new RPC();
         rpcAgent.start();
-        System.out.println("[  " + ANSI_GREEN + "OK" + "  ]");
+        System.out.println("[  " + ANSI_GREEN + "OK" + ANSI_RESET + "  ]");
 
         File peerFile = new File("peers.list");
         ArrayList<String> peers = new ArrayList<>();
@@ -65,7 +65,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        getLogger().info("Sending REQUEST_NET_STATE out to network");
+        System.out.println(ANSI_CYAN + "[p2p]" + ANSI_RESET + " - Sending REQUEST_NET_STATE out to network");
         peerNetwork.broadcast("REQUEST_NET_STATE");
         int topBlock = 0;
         ArrayList<String> allBroadcastTransactions = new ArrayList<>();
@@ -91,7 +91,7 @@ public class Main {
                     }
                     writePeerFile.close();
                 } catch (Exception e){
-                    Util.getLogger().warning("Error: Unable to write to peer file.");
+                    System.out.println("Error: Unable to write to peer file.");
                     e.printStackTrace();
                 }
             }
@@ -100,7 +100,7 @@ public class Main {
             for (int i = 0; i < peerNetwork.peerThreads.size(); i++) {
                 ArrayList<String> input = peerNetwork.peerThreads.get(i).inputThread.readData();
                 if(input == null){
-                    Util.getLogger().info("Null ret retry.");
+                    System.out.println("Null ret retry.");
                     System.exit(-5);
                     break;
                 }
@@ -108,9 +108,9 @@ public class Main {
                 for (int j = 0; j < input.size(); j++) {
                     String data = input.get(j);
                     if(data.length() > 60){
-                        Util.getLogger().info("Got data: " + data.substring(0, 30) + "..." + data.substring(data.length() - 30, data.length()));
+                        System.out.println("Got data: " + data.substring(0, 30) + "..." + data.substring(data.length() - 30, data.length()));
                     } else {
-                        Util.getLogger().info("Got data: " + data);
+                        System.out.println("Got data: " + data);
                     }
                     String[] parts = data.split(" ");
                     if (parts.length > 0){
@@ -118,11 +118,11 @@ public class Main {
                             topBlock = Integer.parseInt(parts[1]);
                         } else if (parts[0].equalsIgnoreCase("REQUEST_NET_STATE")){
                             peerNetwork.peerThreads.get(i).outputThread.write("NETWORK_STATE " + databaseMaster.getBlockchainLength() + " " + databaseMaster.getLatestBlock().blockHash);
-                            for (int k = 0; k < pendingTransactionContainer.pending.size(); k++) {
-                                peerNetwork.peerThreads.get(i).outputThread.write("TRANSACTION " + pendingTransactionContainer.pending.get(k));
+                            for (int k = 0; k < pendingTransactionContainer.pendingTransactions.size(); k++) {
+                                peerNetwork.peerThreads.get(i).outputThread.write("TRANSACTION " + pendingTransactionContainer.pendingTransactions.get(k));
                             }
                         } else if (parts[0].equalsIgnoreCase("BLOCK")){
-                            Util.getLogger().info("Attempting to add block...");
+                            System.out.println("Attempting to add block...");
                             boolean hasSeenBlockBefore = false;
                             for (int k = 0; k < allBroadcastBlocks.size(); k++) {
                                 if(parts[1].equals(allBroadcastBlocks.get(k))){
@@ -131,13 +131,13 @@ public class Main {
                             }
 
                             if(!hasSeenBlockBefore){
-                                Util.getLogger().info("Adding new block from network...");
-                                Util.getLogger().info("Block: ");
-                                Util.getLogger().info(parts[1].substring(0, 30) + "...");
+                                System.out.println("Adding new block from network...");
+                                System.out.println("Block: ");
+                                System.out.println(parts[1].substring(0, 30) + "...");
                                 allBroadcastBlocks.add(parts[1]);
                                 Block blockToAdd = new Block(parts[1]);
                                 if(databaseMaster.addBlock(blockToAdd) && !catchupMode){
-                                    Util.getLogger().info("Added block " + blockToAdd.blockIndex + " with hash: [" + blockToAdd.blockHash.substring(0, 30) + "..." + blockToAdd.blockHash.substring(blockToAdd.blockHash.length() - 30, blockToAdd.blockHash.length() - 1) + "]");
+                                    System.out.println("Added block " + blockToAdd.blockNum + " with hash: [" + blockToAdd.blockHash.substring(0, 30) + "..." + blockToAdd.blockHash.substring(blockToAdd.blockHash.length() - 30, blockToAdd.blockHash.length() - 1) + "]");
                                     peerNetwork.broadcast("BLOCK " + parts[1]);
                                 }
                                 pendingTransactionContainer.removeTransactionsInBlock(parts[1]);
@@ -153,15 +153,15 @@ public class Main {
                                 allBroadcastTransactions.add(parts[1]);
                                 pendingTransactionContainer.addTransaction(parts[1]);
                                 if(TransactionUtility.isTransactionValid(parts[1])){
-                                    Util.getLogger().info("New tx on network: ");
+                                    System.out.println("New tx on network: ");
                                     String[] txParts = parts[1].split("::");
                                     for (int k = 2; k < txParts.length - 2; k+=2) {
-                                        Util.getLogger().info("     " + txParts[k + 1] + " cozy(s) from " + txParts[0] + " to " + txParts[k]);
+                                        System.out.println("     " + txParts[k + 1] + " cozy(s) from " + txParts[0] + " to " + txParts[k]);
                                     }
-                                    Util.getLogger().info("Total cozy sent: "+ txParts[1]);
+                                    System.out.println("Total cozy sent: "+ txParts[1]);
                                     peerNetwork.broadcast("TRANSACTION " + parts[1]);
                                 } else {
-                                    Util.getLogger().info("Invalid transaction: " + parts[1]);
+                                    System.out.println("Invalid transaction: " + parts[1]);
                                 }
                             }
                         } else if (parts[0].equalsIgnoreCase("PEER")){
@@ -194,7 +194,7 @@ public class Main {
                             try{
                                 Block block = databaseMaster.getBlock(Integer.parseInt(parts[1]));
                                 if (block != null){
-                                    Util.getLogger().info("Sending block " + parts[1] + " to peer");
+                                    System.out.println("Sending block " + parts[1] + " to peer");
                                     peerNetwork.peerThreads.get(i).outputThread.write("BLOCK " + block.getRawBlock());
                                 }
                             } catch (Exception e){
@@ -213,21 +213,21 @@ public class Main {
 
             if(topBlock > currentChainHeight){
                 catchupMode = true;
-                Util.getLogger().info("Current chain height: " + currentChainHeight);
-                Util.getLogger().info("Top block: " + topBlock);
+                System.out.println("Current chain height: " + currentChainHeight);
+                System.out.println("Top block: " + topBlock);
                 try{
                     Thread.sleep(300);
                 } catch (InterruptedException e){
-                    Util.getLogger().info("Main thread sleep interrupted.");
+                    System.out.println("Main thread sleep interrupted.");
                     e.printStackTrace();
                 }
                 for (int i = currentChainHeight; i < topBlock; i++) {
-                    Util.getLogger().info("Requesting block " + i + "...");
+                    System.out.println("Requesting block " + i + "...");
                     peerNetwork.broadcast("GET_BLOCK " + i);
                 }
             } else {
                 if (catchupMode){
-                    Util.getLogger().info("Caught up with network.");
+                    System.out.println(ANSI_CYAN + "[p2p] " + ANSI_RESET + "- Caught up with network.");
                 }
                 catchupMode = false;
             }
@@ -253,20 +253,20 @@ public class Main {
                         res += "\nDifficulty: " + databaseMaster.getDifficulty();
                         res += "\nMain address (default): " + addressManager.getDefaultAddress();
                         res += "\nMain address balance: " + databaseMaster.getAddressBalance(addressManager.getDefaultAddress());
-                        res += "\nLatest transaction: " + databaseMaster.getLatestBlock().txs.get(databaseMaster.getLatestBlock().txs.size() - 1);
+                        res += "\nLatest transaction: " + databaseMaster.getLatestBlock().transactions.get(databaseMaster.getLatestBlock().transactions.size() - 1);
                         rpcAgent.rpcThreads.get(i).res = res;
                     } else if (parts[0].equals("send")){
                         try{
-                            double amount = Double.parseDouble(parts[1]);
+                            long amount = Long.parseLong(parts[1]);
                             String destAddr = parts[2];
                             String addr = addressManager.getDefaultAddress();
-                            String fullTx = addressManager.getSignedTransaction(destAddr, amount, databaseMaster.getAddressSignatureIndex(addr) + addressManager.getDefaultOffset());
-                            addressManager.incrementDefaultOffset();
-                            Util.getLogger().info("Trying to verify transaction... " + TransactionUtility.isTransactionValid(fullTx));
+                            String fullTx = addressManager.getSignedTransaction(destAddr, amount, databaseMaster.getAddressSignatureIndex(addr) + addressManager.getDefaultAddressIndexOffset());
+                            addressManager.incrementDefaultAddressIndexOffset();
+                            System.out.println("Trying to verify transaction... " + TransactionUtility.isTransactionValid(fullTx));
                             if (TransactionUtility.isTransactionValid(fullTx)){
                                 pendingTransactionContainer.addTransaction(fullTx);
                                 peerNetwork.broadcast("TRANSACTION " + fullTx);
-                                Util.getLogger().info("Sending " + amount + " to " + destAddr + " from " + addr);
+                                System.out.println("Sending " + amount + " to " + destAddr + " from " + addr);
                                 rpcAgent.rpcThreads.get(i).res = "Sent " + amount + " from " + addr + " to " + destAddr;
                             } else {
                                 rpcAgent.rpcThreads.get(i).res = "Unable to send: invalid transaction :(";
@@ -315,8 +315,8 @@ public class Main {
 
                         if (conditionsMet)
                         {
-                            Util.getLogger().info("Last block: " + databaseMaster.getBlockchainLength());
-                            Util.getLogger().info("That block's hash: " + databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash);
+                            System.out.println("Last block: " + databaseMaster.getBlockchainLength());
+                            System.out.println("That block's hash: " + databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash);
                             String previousBlockHash = databaseMaster.getBlock(databaseMaster.getBlockchainLength() - 1).blockHash;
                             double currentBalance = databaseMaster.getAddressBalance(PoSAddress);
                             Certificate certificate = new Certificate(PoSAddress, "0", (int)currentBalance * 100, "0", databaseMaster.getBlockchainLength() + 1, previousBlockHash, 0, "0,0");
@@ -331,13 +331,13 @@ public class Main {
                                 {
                                     //Great, certificate is a winning certificate!
                                     //Gather all of the transactions from pendingTransactionContainer, check them.
-                                    ArrayList<String> allPendingTransactions = pendingTransactionContainer.pending;
-                                    Util.getLogger().info("Initial pending pool size: " + allPendingTransactions.size());
+                                    ArrayList<String> allPendingTransactions = pendingTransactionContainer.pendingTransactions;
+                                    System.out.println("Initial pending pool size: " + allPendingTransactions.size());
                                     allPendingTransactions = TransactionUtility.sortTransactionsBySignatureIndex(allPendingTransactions);
-                                    Util.getLogger().info("Pending pool size after sorting: " + allPendingTransactions.size());
+                                    System.out.println("Pending pool size after sorting: " + allPendingTransactions.size());
                                     //All transactions have been ordered, and tested for validity. Now, we need to check account balances to make sure transactions are valid. 
                                     //As all transactions are grouped by address, we'll check totals address-by-address
-                                    ArrayList<String> finalTransactionList = new ArrayList<String>();
+                                    ArrayList<String> finalTransactionList = new ArrayList<>();
                                     for (int j = 0; j < allPendingTransactions.size(); j++)
                                     {
                                         String transaction = allPendingTransactions.get(j);
@@ -366,16 +366,16 @@ public class Main {
                                                 {
                                                     //Add seemingly-good transaction to the list, and increment previousSignatureCount for signature order assurance. 
                                                     finalTransactionList.add(transaction);
-                                                    Util.getLogger().info("While making block, added transaction " + transaction);
+                                                    System.out.println("While making block, added transaction " + transaction);
                                                     previousSignatureCount++;
                                                 }
                                                 else
                                                 {
-                                                    Util.getLogger().info("Transaction failed final validation...");
-                                                    Util.getLogger().info("exitBalance: " + exitBalance);
-                                                    Util.getLogger().info("originalBalance: " + originalBalance);
-                                                    Util.getLogger().info("previousSignatureCount: " + previousSignatureCount);
-                                                    Util.getLogger().info("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
+                                                    System.out.println("Transaction failed final validation...");
+                                                    System.out.println("exitBalance: " + exitBalance);
+                                                    System.out.println("originalBalance: " + originalBalance);
+                                                    System.out.println("previousSignatureCount: " + previousSignatureCount);
+                                                    System.out.println("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
                                                 }
                                                 //Counter keeps track of the sub-2nd-layer-for-loop incrementation along the ArrayList. It's kinda 3D.
                                                 counter++;
@@ -386,30 +386,30 @@ public class Main {
                                     //databaseMaster.getBlockchainLength() doesn't have one added to it to account for starting from 0!
                                     String fullBlock = BlockGenerator.compileBlock(System.currentTimeMillis(), databaseMaster.getBlockchainLength(), databaseMaster.getLatestBlock().blockHash, 100000 /*fixed testnet PoS difficulty for now...*/, bestNonce, "0000000000000000000000000000000000000000000000000000000000000000", finalTransactionList, certificate, certificate.redeemAddress, addressManager.getDefaultPrivateKey(), databaseMaster.getAddressSignatureIndex(certificate.redeemAddress));
 
-                                    Util.getLogger().info("Compiled PoS block: " + fullBlock);
+                                    System.out.println("Compiled PoS block: " + fullBlock);
 
                                     //We finally have the full block. Now to submit it to ourselves...
                                     Block toAdd = new Block(fullBlock);
                                     boolean success = databaseMaster.addBlock(toAdd);
 
-                                    Util.getLogger().info("Block add success: " + success);
+                                    System.out.println("Block add success: " + success);
 
                                     if (success) //The block appears legitimate to ourselves! Send it to others!
                                     {
                                         peerNetwork.broadcast("BLOCK " + fullBlock);
-                                        Util.getLogger().info("PoS Block added to network successfully!");
+                                        System.out.println("PoS Block added to network successfully!");
                                         pendingTransactionContainer.reset(); //Any transactions left in pendingTransactionContainer that didn't get submitted into the block should be cleared anyway--they probably aren't valid for some reason, likely balance issues.
-                                        addressManager.resetDefaultOffset();
+                                        addressManager.resetDefaultAddressIndexOffset();
                                     }
                                     else
                                     {
-                                        Util.getLogger().info("Block was not added successfully! :(");
+                                        System.out.println("Block was not added successfully! :(");
                                     }
                                     rpcAgent.rpcThreads.get(i).res = "Successfully submitted block! \nCertificate earned score " + lowestScore + "\nWhich is below target " + target + " so earned PoS!";
                                 } catch (Exception e)
                                 {
                                     rpcAgent.rpcThreads.get(i).res = "Failure to construct certificate!";
-                                    Util.getLogger().info("Constructing certificate failed!");
+                                    System.out.println("Constructing certificate failed!");
                                     e.printStackTrace();
                                 }
                             }
@@ -426,7 +426,7 @@ public class Main {
                          * If 1. shows a difficulty above the network difficulty (below the target), proceed with creating a block:
                          * 2.) Gather all transactions from the pending transaction pool. Test all for validity. Test all under a max balance test.
                          * 3.) Put correct transactions in any arbitrary order, except for multiple transactions from the same address, which are ordered by signature index.
-                         * 4.) Input the ledger hash (In 2.0.0a5, this is 0000000000000000000000000000000000000000000000000000000000000000, as ledger hashing isn't fully implemented)
+                         * 4.) Input the ledger hash (In 0.2.05, this is 0000000000000000000000000000000000000000000000000000000000000000, as ledger hashing isn't fully implemented)
                          * 5.) Hash the block
                          * 6.) Sign the block
                          * 7.) Return full block
@@ -444,13 +444,13 @@ public class Main {
                             {
                                 //Great, certificate is a winning certificate!
                                 //Gather all of the transactions from pendingTransactionContainer, check them.
-                                ArrayList<String> allPendingTransactions = pendingTransactionContainer.pending;
-                                Util.getLogger().info("Initial pending pool size: " + allPendingTransactions.size());
+                                ArrayList<String> allPendingTransactions = pendingTransactionContainer.pendingTransactions;
+                                System.out.println("Initial pending pool size: " + allPendingTransactions.size());
                                 allPendingTransactions = TransactionUtility.sortTransactionsBySignatureIndex(allPendingTransactions);
-                                Util.getLogger().info("Pending pool size after sorting: " + allPendingTransactions.size());
+                                System.out.println("Pending pool size after sorting: " + allPendingTransactions.size());
                                 //All transactions have been ordered, and tested for validity. Now, we need to check account balances to make sure transactions are valid.
                                 //As all transactions are grouped by address, we'll check totals address-by-address
-                                ArrayList<String> finalTransactionList = new ArrayList<String>();
+                                ArrayList<String> finalTransactionList = new ArrayList<>();
                                 for (int j = 0; j < allPendingTransactions.size(); j++)
                                 {
                                     String transaction = allPendingTransactions.get(j);
@@ -479,16 +479,16 @@ public class Main {
                                             {
                                                 //Add seemingly-good transaction to the list, and increment previousSignatureCount for signature order assurance.
                                                 finalTransactionList.add(transaction);
-                                                Util.getLogger().info("While making block, added transaction " + transaction);
+                                                System.out.println("While making block, added transaction " + transaction);
                                                 previousSignatureCount++;
                                             }
                                             else
                                             {
-                                                Util.getLogger().info("Transaction failed final validation...");
-                                                Util.getLogger().info("exitBalance: " + exitBalance);
-                                                Util.getLogger().info("originalBalance: " + originalBalance);
-                                                Util.getLogger().info("previousSignatureCount: " + previousSignatureCount);
-                                                Util.getLogger().info("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
+                                                System.out.println("Transaction failed final validation...");
+                                                System.out.println("exitBalance: " + exitBalance);
+                                                System.out.println("originalBalance: " + originalBalance);
+                                                System.out.println("previousSignatureCount: " + previousSignatureCount);
+                                                System.out.println("signature count of new tx: " + Long.parseLong(transaction.split("::")[transaction.split("::").length - 1]));
                                             }
                                             //Counter keeps track of the sub-2nd-layer-for-loop incrementation along the ArrayList. It's kinda 3D.
                                             counter++;
@@ -502,20 +502,20 @@ public class Main {
                                 boolean success = databaseMaster.addBlock(toAdd);
                                 if (success) //The block appears legitimate to ourselves! Send it to others!
                                 {
-                                    Util.getLogger().info("Block added to network successfully!");
+                                    System.out.println("Block added to network successfully!");
                                     peerNetwork.broadcast("BLOCK " + fullBlock);
                                     pendingTransactionContainer.reset(); //Any transactions left in pendingTransactionContainer that didn't get submitted into the block should be cleared anyway--they probably aren't valid for some reason, likely balance issues.
-                                    addressManager.resetDefaultOffset();
+                                    addressManager.resetDefaultAddressIndexOffset();
                                 }
                                 else
                                 {
-                                    Util.getLogger().info("Block was not added successfully! :(");
+                                    System.out.println("Block was not added successfully! :(");
                                 }
                                 rpcAgent.rpcThreads.get(i).res = "Successfully submitted block! \nCertificate earned target score " + lowestScore + "\nWhich is below target " + target;
                             } catch (Exception e)
                             {
                                 rpcAgent.rpcThreads.get(i).res = "Failure to construct certificate!";
-                                Util.getLogger().info("Constructing certificate failed!");
+                                System.out.println("Constructing certificate failed!");
                                 e.printStackTrace();
                             }
                         }
