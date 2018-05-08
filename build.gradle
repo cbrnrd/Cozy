@@ -26,13 +26,28 @@ jar {
 
 task fatJar(type: Jar){
     manifest {
-        attributes 'Implementation-Title' : 'Cozy 1.0.0 Daemon',
+        attributes 'Implementation-Title' : 'Cozy 0.2.0 Daemon',
                 'Implementation-Version' : version,
                 'Main-Class' : 'io.codepace.cozy.Main'
     }
     baseName = project.name;
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
 
 targetCompatibility = 1.8
