@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="463d630d-c335-4277-a51c-659b92f33682" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -42,7 +60,25 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="cozy" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cozy" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -53,38 +89,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Util.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Certificate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <state relative-caret-position="530">
+              <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="PendingTransactionContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java">
+      <file leaf-file-name="RandomString.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+            <state relative-caret-position="136">
+              <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+              <folding>
+                <element signature="e#1230#1231#0" expanded="true" />
+                <element signature="e#1276#1277#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionUtility.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="26" column="121" selection-start-line="26" selection-start-column="121" selection-end-line="26" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OutputThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -92,26 +150,34 @@
       <file leaf-file-name="CozyDatabaseMaster.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="91" column="103" selection-start-line="91" selection-start-column="103" selection-end-line="91" selection-end-column="103" />
+            <state relative-caret-position="435">
+              <caret line="62" column="55" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
+              <folding>
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#964#965#0" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
+                <element signature="e#1185#1186#0" expanded="true" />
+                <element signature="e#1284#1285#0" expanded="true" />
+                <element signature="e#1342#1343#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="MerkleTreeGenLimitless.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="608">
+              <caret line="124" column="69" selection-start-line="124" selection-start-column="69" selection-end-line="124" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeerNetwork.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java">
+      <file leaf-file-name="BlockGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="112">
+              <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -119,32 +185,11 @@
       <file leaf-file-name="Blockchain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5567">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="446">
+              <caret line="416" column="40" selection-start-line="416" selection-start-column="40" selection-end-line="416" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="156" column="72" selection-start-line="156" selection-start-column="72" selection-end-line="156" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RPC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -160,8 +205,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Util.logInfoAndPrint</find>
-      <find>logInfoAndPrint</find>
       <find>Certificate valida</find>
       <find>DAEMON</find>
       <find>keys per s</find>
@@ -190,6 +233,8 @@
       <find>peerThreads</find>
       <find>try</find>
       <find>isAlive</find>
+      <find>writeBlock</find>
+      <find>writeBlockToFile</find>
     </findStrings>
     <replaceStrings>
       <replace>Coffeecoin</replace>
@@ -561,7 +606,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/LedgerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/address/LamportGenThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/StringLongPair.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Block.java" />
@@ -587,31 +631,32 @@
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/db/Blockchain.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/coffeecoin/Main.java" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/MerkleAddressUtility.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringDoublePair.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/StringLongPair.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPCThread.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java" />
       </list>
     </option>
   </component>
@@ -624,10 +669,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1688" />
-    <option name="y" value="17" />
-    <option name="width" value="1696" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1755" />
+    <option name="y" value="9" />
+    <option name="width" value="1694" />
     <option name="height" value="1066" />
   </component>
   <component name="ProjectView">
@@ -636,7 +681,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Production">
           <expand>
@@ -711,6 +755,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -722,19 +768,6 @@
               <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
               <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="javadoc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
@@ -780,6 +813,28 @@
               <item name="io" type="462c0819:PsiDirectoryNode" />
               <item name="codepace" type="462c0819:PsiDirectoryNode" />
               <item name="cozy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="codepace" type="462c0819:PsiDirectoryNode" />
+              <item name="cozy" type="462c0819:PsiDirectoryNode" />
+              <item name="address" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coffeecoin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="codepace" type="462c0819:PsiDirectoryNode" />
+              <item name="cozy" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cozy" type="b2602c69:ProjectViewProjectNode" />
@@ -796,7 +851,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -819,117 +873,6 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="io.codepace.coffeecoin" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/TODO.md</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1113,6 +1056,10 @@
       <updated>1513874777344</updated>
       <workItem from="1525729308915" duration="10690000" />
       <workItem from="1526864293762" duration="5690000" />
+      <workItem from="1526955125525" duration="806000" />
+      <workItem from="1528826701650" duration="2088000" />
+      <workItem from="1528918139996" duration="99000" />
+      <workItem from="1530503311850" duration="1884000" />
     </task>
     <task id="LOCAL-00001" summary=":boom: Major refactor and code cleanup">
       <created>1525747304563</created>
@@ -1147,10 +1094,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16380000" />
+    <option name="totallyTimeSpent" value="21257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="17" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -1160,28 +1108,29 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50061125" side_tool="true" weight="0.3524862" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49938875" weight="0.3524862" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3281768" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32928178" />
+      <window_info anchor="bottom" id="IntelliGuard" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3281768" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.17665036" />
-      <window_info anchor="bottom" id="Build" order="11" weight="0.25082874" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.18398532" />
       <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32928178" />
       <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.1888753" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Build" order="11" weight="0.25082874" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32928178" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1197,8 +1146,19 @@
     <MESSAGE value="Cleanups for reliable peer setup" />
     <option name="LAST_COMMIT_MESSAGE" value="Cleanups for reliable peer setup" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java</url>
+          <line>121</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/scripts/coffeecoin.bat" />
     <entry file="file://$PROJECT_DIR$/8443694/layer1.lyr" />
     <entry file="file://$PROJECT_DIR$/5855442/layer1.XXlyr" />
     <entry file="file://$PROJECT_DIR$/coffeecoin.db/blockchain-DONOTTOUCH.dat" />
@@ -1238,25 +1198,10 @@
     <entry file="file://$PROJECT_DIR$/cozy-db/blockchain-DONOTTOUCH.dat" />
     <entry file="file://$PROJECT_DIR$/wallet-keys.dat" />
     <entry file="file://$PROJECT_DIR$/scratch" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/LedgerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="342" column="41" lean-forward="true" selection-start-line="342" selection-start-column="41" selection-end-line="342" selection-end-column="41" />
-          <folding>
-            <element signature="e#5048#5049#0" expanded="true" />
-            <element signature="e#5096#5097#0" expanded="true" />
-            <element signature="e#7169#7177#0" expanded="true" />
-            <element signature="e#7243#7249#0" expanded="true" />
-            <element signature="e#11028#11036#0" expanded="true" />
-            <element signature="e#11102#11108#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1274,77 +1219,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="138" column="46" lean-forward="true" selection-start-line="138" selection-start-column="46" selection-end-line="138" selection-end-column="46" />
-          <folding>
-            <element signature="e#4012#4020#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/LamportGenThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3286">
           <caret line="208" column="1" selection-start-line="208" selection-start-column="1" selection-end-line="208" selection-end-column="1" />
-          <folding>
-            <element signature="e#1548#1549#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
-          <folding>
-            <element signature="e#8309#8327#0" expanded="true" />
-            <element signature="e#17656#17683#0" expanded="true" />
-            <element signature="e#18922#18949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="40" selection-end-line="60" selection-end-column="1" />
-          <folding>
-            <element signature="e#793#801#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#2128#2155#0" expanded="true" />
-            <element signature="e#2461#2469#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-          <folding>
-            <element signature="e#1077#1078#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-            <element signature="e#3927#3928#0" expanded="true" />
-            <element signature="e#3965#3966#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1352,10 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-          <folding>
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1373,20 +1247,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/AddressManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="801">
           <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1404,28 +1268,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wallet.keys" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="91" column="103" selection-start-line="91" selection-start-column="103" selection-end-line="91" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1433,51 +1276,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5567">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/RPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="646">
           <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java">
+    <entry file="file://$PROJECT_DIR$/peers.list" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peers.list">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        <state relative-caret-position="306">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/PeerNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="1122">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="156" column="72" selection-start-line="156" selection-start-column="72" selection-end-line="156" selection-end-column="72" />
+        <state relative-caret-position="1819">
+          <caret line="120" column="101" selection-start-line="120" selection-start-column="101" selection-end-line="120" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/install/cozy/bin/cozy" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="69" column="64" selection-start-line="69" selection-start-column="64" selection-end-line="69" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/Blockchain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="416" column="40" selection-start-line="416" selection-start-column="40" selection-end-line="416" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/db/CozyDatabaseMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="62" column="55" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
+          <folding>
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/address/MerkleTreeGenLimitless.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="124" column="69" selection-start-line="124" selection-start-column="69" selection-end-line="124" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/BlockGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="32" column="69" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/Certificate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/PendingTransactionContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/RandomString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding>
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/TransactionUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/InputThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="121" selection-start-line="26" selection-start-column="121" selection-end-line="26" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/codepace/cozy/p2p/OutputThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
         </state>
       </provider>
     </entry>

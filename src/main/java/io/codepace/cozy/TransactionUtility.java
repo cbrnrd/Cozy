@@ -63,13 +63,13 @@ public class TransactionUtility
     }
 
     /**
-     * Transactions on the Cozycoin 2.0 network from the same address must occur in a certain order, dictated by the signature index.
+     * Transactions on the Cozycoin network from the same address must occur in a certain order, dictated by the signature index.
      * As such, We want to order all transactions from the same address in order.
      * The order of transactions from different addresses does not matter--coins will not be received and spent in the same transaction.
      *
-     * @param transactionsToSort ArrayList<String> containing String representations of all the addresses to sort
+     * @param transactionsToSort {@link ArrayList} containing String representations of all the addresses to sort
      *
-     * @return ArrayList<String> All of the transactions sorted in order for block inclusion, with any self-invalidating transactions removed.
+     * @return {@link ArrayList} All of the transactions sorted in order for block inclusion, with any self-invalidating transactions removed.
      */
     public static ArrayList<String> sortTransactionsBySignatureIndex(ArrayList<String> transactionsToSort)
     {

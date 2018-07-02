@@ -52,7 +52,7 @@ public class Block
      *
      * A higher difficulty means a block is harder to mine. However, a higher difficulty means the TARGET is smaller. Targets can be calculated from the difficulty. A target is simply Long.MAX_VALUE-difficulty.
      *
-     * Explicit transactions are represented as Strings in an ArrayList<String>. Each explicit transaction follows the following format:
+     * Explicit transactions are represented as Strings in an {@link ArrayList}. Each explicit transaction follows the following format:
      * InputAddress;InputAmount;OutputAddress1;OutputAmount1;OutputAddress2;OutputAmount2...;SignatureData;SignatureIndex
      * At a bare minimum, ALL transactions must have an InputAddress, InputAmount, and one OutputAddress and one OutputAmount
      * Anything left over after all OutputAmounts have been subtracted from the InputAmount is the transaction fee which goes to a block miner.
@@ -61,10 +61,11 @@ public class Block
      * @param timestamp Timestamp originally set into the block by the miner
      * @param blockNum The block number
      * @param previousBlockHash The hash of the previous block
+     * @param certificate The certificate of the block
      * @param difficulty The difficulty at the time this block was mined
      * @param winningNonce The nonce selected by a miner to create the block
      * @param ledgerHash The hash of the ledger as it existed before this block's transactions occurred
-     * @param transactions ArrayList<String> of all the transactions included in the block
+     * @param transactions {@link ArrayList} of all the transactions included in the block
      * @param minerSignature Miner's signature of the block
      * @param minerSignatureIndex Miner's signature index used when generating minerSignature
      */
@@ -217,6 +218,7 @@ public class Block
      * -Miner signature is valid
      * -Transactions are formatted correctly
      *
+     * @param blockchain The blockchain in which to validate the block
      * @return boolean Whether the self-contained block is valid. Does not represent inclusion in the network, or existence of the previous block.
      */
     public boolean validateBlock(Blockchain blockchain)
@@ -489,13 +491,13 @@ public class Block
 
     /**
      * Scans the block for any transactions that involve the provided address.
-     * Returns ArrayList<String> containing "simplified" transactions, in the format of sender:amount:receiver
+     * Returns {@link ArrayList} containing "simplified" transactions, in the format of sender:amount:receiver
      * Each of these "simplified" transaction formats don't necessarily express an entire transaction, but rather only portions
      * of a transaction which involve either the target address sending or receiving coins.
      *
      * @param addressToFind Address to search through block transaction pool for
      *
-     * @return ArrayList<String> Simplified-transaction-format list of all related transactions.
+     * @return {@link ArrayList} Simplified-transaction-format list of all related transactions.
      */
     public ArrayList<String> getTransactionsInvolvingAddress(String addressToFind)
     {

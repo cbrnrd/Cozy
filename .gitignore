@@ -6,6 +6,7 @@ peers.list
 peers.list
 scratch
 wallet.keys
+writebuffer
 
 # User-specific stuff:
 .idea/**/workspace.xml

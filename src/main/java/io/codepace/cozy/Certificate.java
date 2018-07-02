@@ -72,14 +72,15 @@ public class Certificate {
      * Constructor for Certificate object. A constructed certificate object is not necessarily a valid certificate for the network--be sure to call validateCertificate()!
      * As a program structure/design choice, validateCertificate() is not called by the constructor, as the constructor has no reasonable method for notifying the object
      * creator of the formatting or signature verification problems.
-     * Currently, authority names are hard-coded with special (>18 layer) addresses in a HashMap<String, String>.
+     * Currently, authority names are hard-coded with special (less than 18 layers) addresses in a {@link HashMap}.
      * In the future, these will be drawn from some external source, and the signature authorities will have robust control over this.
      * 0.2.01 is to prove that stuff works and stress test other components of the network--protocol-level support for signature authorities to change their address
      * will probably be demonstrated in 0.2.02. Maybe a3.
      *
      * @param redeemAddress  The address the coinbase will be sent to if this certificate were to mine a block
      * @param arbitraryData  Arbitrary data added to the certificate, could be an address for P2Pool, or a username/worker name for a traditional pool.
-     * @param authorityName  The human-readable name of the signature authority. Example: "CureLabs"
+     * @param maxNonce       The maximum nonce in the certificate.
+     * @param authorityName  The human-readable name of the signature authority.
      * @param blockNum       The block number this certificate is valid for mining
      * @param prevBlockHash  The hash of the previous block a block made using this certificate would stack on top of
      * @param signatureIndex The signature index used when signing this certificate, used for certificate verification.
@@ -121,7 +122,7 @@ public class Certificate {
     /**
      * Used to check a variety of conditions to ensure that a certificate is valid.
      * Valid certificate requirements:
-     * -AuthorityName resolves properly to an address (stored in the HashMap<String, String> called authorities)
+     * -AuthorityName resolves properly to an address (stored in the {@link HashMap} called authorities)
      * -Signature signs the certificate message properly and is valid for the given signature index
      * -redeemAddress is formatted correctly, the hash (last four characters) matches the TreeRoot
      * -arbitraryData is 40 or fewer characters

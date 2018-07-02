@@ -43,7 +43,7 @@ public class CozyDatabaseMaster {
     }
 
     /**
-     * Returns the block of the highest chain
+     * @return The latest block in the local chain
      */
     public Block getLatestBlock() {
         return getBlock(getBlockchainLength() - 1);
@@ -60,6 +60,7 @@ public class CozyDatabaseMaster {
 
     /**
      * Constructor for CozycoinDatabaseMaster reads in blockchain data, and writes the first two blocks of the network to a file if necessary.
+     * @param dbFolder The folder to store the database
      */
     public CozyDatabaseMaster(String dbFolder) {
         this.dbFolder = new File(dbFolder);
@@ -154,7 +155,7 @@ public class CozyDatabaseMaster {
      * Passthrough to Blockchain.getAllTransactionsInvolvingAddress
      *
      * @param addressToFind Address to search through all block transaction pools for
-     * @return ArrayList<String> All transactions in simplified form blocknum:sender:amount:receiver of
+     * @return {@link ArrayList} All transactions in simplified form blocknum:sender:amount:receiver of
      */
     public ArrayList<String> getAllTransactionsInvolvingAddress(String addressToFind) {
         return blockchain.getAllTransactionsInvolvingAddress(addressToFind);

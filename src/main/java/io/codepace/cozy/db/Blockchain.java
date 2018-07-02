@@ -369,6 +369,7 @@ public class Blockchain {
     /**
      * Writes a block to the blockchain file
      *
+     * @param block The block object to write
      * @return boolean Whether write was successful
      */
     public boolean writeBlockToFile(Block block) {
@@ -413,7 +414,7 @@ public class Blockchain {
      * Calls getTransactionsInvolvingAddress() on all Block objects in the current Blockchain to get all relevant transactions.
      *
      * @param addressToFind Address to search through all block transaction pools for
-     * @return ArrayList<String> All transactions in simplified form blocknum:sender:amount:receiver of
+     * @return {@link ArrayList} All transactions in simplified form blocknum:sender:amount:receiver of
      */
     public ArrayList<String> getAllTransactionsInvolvingAddress(String addressToFind) {
         int longestChainLength = 0;

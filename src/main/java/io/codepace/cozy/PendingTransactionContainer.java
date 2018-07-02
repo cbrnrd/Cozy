@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * This class offers basic functionality for storing transactions until they make it into a block.
- * It could be just an ArrayList<String> inside of MainClass, however it seemed easier and more OOP-ish to give it its own object.
+ * It could be just an {@link ArrayList} inside of MainClass, however it seemed easier and more OOP-ish to give it its own object.
  * Adding future functionality to pending transaction pool management is much easier when it has its own object.
  */
 public class PendingTransactionContainer {
@@ -20,6 +20,7 @@ public class PendingTransactionContainer {
     /**
      * Constructor for PendingTransactionContainer sets up required ArrayList for holding transactions. The database manager object is passed in, for checking balances
      * when a transaction is being added.
+     * @param databaseMaster The local database master
      */
     public PendingTransactionContainer(CozyDatabaseMaster databaseMaster) {
         this.databaseMaster = databaseMaster;

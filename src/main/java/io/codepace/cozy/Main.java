@@ -117,6 +117,8 @@ public class Main {
                         if(parts[0].equalsIgnoreCase("NETWORK_STATE")){
                             topBlock = Integer.parseInt(parts[1]);
                         } else if (parts[0].equalsIgnoreCase("REQUEST_NET_STATE")){
+                            System.out.println("DBLEN: " + databaseMaster.getBlockchainLength());
+                            System.out.println("HASH: " + databaseMaster.getLatestBlock().blockHash);
                             peerNetwork.peerThreads.get(i).outputThread.write("NETWORK_STATE " + databaseMaster.getBlockchainLength() + " " + databaseMaster.getLatestBlock().blockHash);
                             for (int k = 0; k < pendingTransactionContainer.pendingTransactions.size(); k++) {
                                 peerNetwork.peerThreads.get(i).outputThread.write("TRANSACTION " + pendingTransactionContainer.pendingTransactions.get(k));

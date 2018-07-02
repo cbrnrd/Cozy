@@ -20,6 +20,7 @@ public class OutputThread extends Thread {
 
     /**
      * Constructor to set class socket variable
+     * @param socket The socket to use with the thread
      */
     public OutputThread(Socket socket) {
         this.socket = socket;

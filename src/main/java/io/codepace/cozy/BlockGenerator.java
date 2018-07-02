@@ -21,14 +21,16 @@ public class BlockGenerator {
      *
      * @param timestamp           Timestamp of block
      * @param blockNum            Number of block to create
+     * @param previousBlockHash   The hash of the previous block
      * @param difficulty          Difficulty to place into new block
      * @param winningNonce        The nonce that mines the certificate under the difficulty of the previous block
      * @param ledgerHash          Hash of the current ledger BEFORE transactions held in this block are applied
-     * @param transactions        ArrayList<String> containing all transactions in order to be included in the block
+     * @param transactions        {@link ArrayList} containing all transactions in order to be included in the block
      * @param certificate         Certificate used to create the block
      * @param signingAddress      Address to sign with, this should be the same as the redeemAddress of certificate
      * @param privateKey          Private key of signingAddress, used to create the signature
      * @param minerSignatureIndex Index to use for signing the block
+     * @return String The string representation of the compiled block
      */
     public static String compileBlock(long timestamp, int blockNum, String previousBlockHash, long difficulty, int winningNonce, String ledgerHash, ArrayList<String> transactions, Certificate certificate, String signingAddress, String privateKey, long minerSignatureIndex) {
         System.out.println("Creating block...");
