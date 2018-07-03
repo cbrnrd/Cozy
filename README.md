@@ -22,3 +22,7 @@ Since Cozy is built using Java, the node can be run on Linux, Windows, or macOS.
 
 # License
 Cozy is released under the terms of the MIT license. See [LICENSE](https://github.com/cbrnrd/Cozy/blob/master/LICENSE) for more information.
+
+<p align="center">
+  <img height="100" width="300" src="https://i.imgur.com/obHmDnX.png">
+</p>
