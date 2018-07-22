@@ -1,0 +1,25 @@
+
+  name: cozy
+  version: '0.2.0'
+  summary: A PoW & PoS cryptocurrency written in pure Java.
+  description: |
+    Cozy is a cryptocurrency based on secure blockchain technology.
+    It uses peer-to-peer networking to keep payments secure and without a central authority.
+
+  confinement: devmode # use 'strict' once you have the right plugs and slots
+
+  apps:
+  cozyd:
+    command: $SNAP/gradlew run
+
+  parts:
+    cozy:
+      plugin: gradle
+      source: .
+       build: |
+        export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+        gradle fatJar
+      build-packages:
+      - unzip
+      - openjdk-8-jdk
+  
